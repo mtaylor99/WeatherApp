@@ -38,17 +38,13 @@ $(document).ready(function(){
     }
 
     function  DisplayWeatherApp() {
-        $(".js-weather-entries-table tr").remove(); 
-
+        $(".js-weather-entries-table tbody tr").remove();
 
         for (var i = 0; i < cityWeatherResults.length; i++) {
-            var html = "<tr><td>" + currentCityName + "</td><td class=\"u-text-left\">" + cityWeatherResults[i].weather[0].description  + "</td><td>" + cityWeatherResults[i].weather[0].description + "</td></tr>";
+            
+            var newRowContent = "<tr><td>" + currentCityName + "</td><td class=\"u-text-left\">" + cityWeatherResults[i].weather[0].description  + "</td><td>" + cityWeatherResults[i].weather[0].description + "</td></tr>";
 
-            if (i === 0) {
-                $(".js-weather-entries-table tbody:last").after(html);
-            } else {
-                $(".js-weather-entries-table tr:last").after(html);
-            }
+            $(".js-weather-entries-table tbody").append(newRowContent); 
         }
     }
 
