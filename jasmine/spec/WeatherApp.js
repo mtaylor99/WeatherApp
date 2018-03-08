@@ -6,11 +6,13 @@ describe("Weather App", function() {
     });
 
     it("Initial storage is correct", function() {
+        debugger;
+
         var expectedCities = "London;Rome;New York;Toronto;Berlin;Dubai";
 
         var returnedCities = ReturnCitiesFromStorage();
 
-        expect(expectedCities === returnedCities);
+        expect(expectedCities === returnedCities).toBe(true);
     });
 
     
