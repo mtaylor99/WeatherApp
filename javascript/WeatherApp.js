@@ -4,30 +4,35 @@ var cityWeatherResults;
 
 $(document).ready(function(){
 
-    function LoadCitiesFromCookie() {
+    function RemoveCitiesFromStorage() {    
+        window.localStorage.removeItem("Cities");
+    }
+
+    function GetCitiesFromStorage() {
         cities = localStorage.getItem("Cities");
 
         if (cities === null) {
             cities = "London;Rome;New York;Toronto;Berlin;Dubai";
-            window.localStorage.setItem("Cities", cities);
+            SaveCitiesToStorage(cities);
         }
+
+        return cities;
     }
 
-    function GetWeatherData(city) {
-        //$.getJSON("http://api.openweathermap.org/data/2.5/forecast?APPID=8bfabc4405e188160d830fc5f133e398&id=" + city,
-        $.getJSON("http://api.openweathermap.org/data/2.5/forecast?APPID=8bfabc4405e188160d830fc5f133e398&q=" + city,
-            function(result){  
-                currentCityName = result.city.name;
-                cityWeatherResults = result.list;
+    function SaveCitiesToStorage(cities) {
+        var currentSavedCities = localStorage.getItem("Cities");
 
-                DisplayWeatherApp();
+        if (currentSavedCities !== null) {
+            currentSavedCities += ";" + cities;
+        } else {
+            currentSavedCities = cities;
+        }
 
-                DisplayWeatherAppVue();
-            });
+        window.localStorage.setItem("Cities", currentSavedCities);
     }
 
-    function PopulateCitiesList() {
-        var cityList = cities.split(";");
+    function DisplayCitiesList() {
+        var cityList = GetCitiesFromStorage().split(";");
 
         for (var i = 0; i < cityList.length; i++) {
             var html = "<div><button class=\"js-city-list\">" + cityList[i] + "</button></div>";
@@ -36,11 +41,21 @@ $(document).ready(function(){
         }
     }
 
-    function  DisplayWeatherApp() {
+    function GetAndDisplayWeatherData(city) {
+        $.getJSON("http://api.openweathermap.org/data/2.5/forecast?APPID=8bfabc4405e188160d830fc5f133e398&q=" + city,
+            function(result){  
+                currentCityName = result.city.name;
+                cityWeatherResults = result.list;
+
+                DisplayWeatherAppJquery();
+                DisplayWeatherAppVue();
+            });
+    }
+
+    function  DisplayWeatherAppJquery() {
         $(".js-weather-entries-table tbody tr").remove();
 
-        for (var i = 0; i < cityWeatherResults.length; i++) {
-            
+        for (var i = 0; i < cityWeatherResults.length; i++) {          
             var newRowContent = "<tr><td>" + currentCityName + "</td><td class=\"u-text-left\">" + cityWeatherResults[i].weather[0].description  + "</td><td>" + cityWeatherResults[i].weather[0].description + "</td></tr>";
 
             $(".js-weather-entries-table tbody").append(newRowContent); 
@@ -62,43 +77,29 @@ $(document).ready(function(){
         });
     }
 
-    LoadCitiesFromCookie();
-    PopulateCitiesList();
-    GetWeatherData("London");
-    
+    $(".js-clear-saved-cities-button").unbind("click")
+        .bind("click", function() {
+            RemoveCitiesFromStorage();
+            $(".js-city-list").remove();
+            $(".js-weather-entries-table tbody tr").remove();
+        });
+
     $(".js-city-list").unbind("click")
         .bind("click", function() {
-            GetWeatherData(event.srcElement.textContent);
+            GetAndDisplayWeatherData(event.srcElement.textContent);
         });
 
     $(".js-add-new-city-button").unbind("click")
         .bind("click", function() {
-
             var newCityName = $(".js-add-new-city-text").val();
-
-            cities = localStorage.getItem("Cities");
-            if (cities === null) {
-                window.localStorage.setItem("Cities", newCityName);
-            } else {
-                window.localStorage.setItem("Cities", cities + ";" + newCityName);
-            }
-            
-
             var html = "<div><button class=\"js-city-list\">" + newCityName + "</button></div>";
 
+            SaveCitiesToStorage(newCityName);
             $(".js-weather-cities-list").after(html);
-
-            GetWeatherData(newCityName);
+            GetAndDisplayWeatherData(newCityName);
         });
 
-    $(".js-clear-saved-cities-button").unbind("click")
-        .bind("click", function() {
-
-            window.localStorage.removeItem("Cities");
-
-            $(".js-city-list").remove();
-
-            $(".js-weather-entries-table tbody tr").remove();
-        });
-     
+    GetCitiesFromStorage();
+    DisplayCitiesList();
+    GetAndDisplayWeatherData("London"); 
 });
