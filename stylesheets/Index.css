@@ -70,21 +70,19 @@ h1 {
   font-size: 50px;
   color: #ff0000; }
 
-.c-weather-entries-container {
-  width: 100%;
-  height: 500px;
-  overflow-y: auto; }
-
-.c-weather-entries-table {
-  margin: 40px 0;
-  border-color: #FF0000; }
-  .c-weather-entries-table .c-basic-table-title {
+table {
+  width: 80%;
+  margin: auto; }
+  table th,
+  table td {
+    border: 1px solid #999999;
+    border-color: #FF0000; }
+  table th {
     text-align: center; }
-  .c-weather-entries-table table {
-    width: 80%;
-    margin: auto; }
-    .c-weather-entries-table table th,
-    .c-weather-entries-table table td {
-      border: 1px solid #999999;
-      text-align: center;
-      border-color: #FF0000; }
+  table td {
+    text-align: left; }
+
+button {
+  background-color: yellow;
+  font-family: Verdana, Helvetica, sans-serif;
+  font-size: 28px; }
