@@ -1,0 +1,41 @@
+h1 {
+  font-family: "arial";
+  font-size: 50px;
+  color: #ff0000; }
+
+.c-weather-entries-container {
+  width: 100%;
+  height: 500px;
+  overflow-y: auto; }
+
+.c-weather-entries-table {
+  margin: 40px 0;
+  border-color: #FF0000; }
+  .c-weather-entries-table .c-basic-table-title {
+    text-align: center; }
+  .c-weather-entries-table table {
+    width: 80%;
+    margin: auto; }
+    .c-weather-entries-table table th,
+    .c-weather-entries-table table td {
+      border: 1px solid #999999;
+      text-align: center;
+      border-color: #FF0000; }
+
+#wrapper {
+  width: 1005px;
+  margin: 0 auto; }
+
+#leftcolumn, #rightcolumn {
+  border: 1px solid white;
+  float: left;
+  min-height: 450px;
+  color: white; }
+
+#leftcolumn {
+  width: 250px;
+  background-color: #111; }
+
+#rightcolumn {
+  width: 750px;
+  background-color: #777; }

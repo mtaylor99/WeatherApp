@@ -1,0 +1,33 @@
+
+h1 {
+    font-family: $text-heading1-font;
+    font-size: $text-heading1-size;
+    color: $text-heading1;
+}
+
+.c-weather-entries-container {
+    width: 100%;
+    height: 500px;
+    overflow-y: auto;
+}
+
+.c-weather-entries-table {
+    margin: 40px 0;
+    border-color: #FF0000;
+
+    .c-basic-table-title {
+        text-align: center;
+    }
+
+    table {
+        width: 80%;
+        margin: auto;
+
+        th,
+        td {
+            border: 1px solid $color-dark-grey;
+            text-align: center;
+            border-color: #FF0000;
+        }
+    }
+}
