@@ -33,7 +33,6 @@ $(document).ready(function(){
             var html = "<div><button class=\"js-city-list\">" + cityList[i] + "</button></div>";
 
             $(".js-weather-cities-list").after(html);
-
         }
     }
 
@@ -69,7 +68,37 @@ $(document).ready(function(){
     
     $(".js-city-list").unbind("click")
         .bind("click", function() {
-        //Some code
             GetWeatherData(event.srcElement.textContent);
         });
+
+    $(".js-add-new-city-button").unbind("click")
+        .bind("click", function() {
+
+            var newCityName = $(".js-add-new-city-text").val();
+
+            cities = localStorage.getItem("Cities");
+            if (cities === null) {
+                window.localStorage.setItem("Cities", newCityName);
+            } else {
+                window.localStorage.setItem("Cities", cities + ";" + newCityName);
+            }
+            
+
+            var html = "<div><button class=\"js-city-list\">" + newCityName + "</button></div>";
+
+            $(".js-weather-cities-list").after(html);
+
+            GetWeatherData(newCityName);
+        });
+
+    $(".js-clear-saved-cities-button").unbind("click")
+        .bind("click", function() {
+
+            window.localStorage.removeItem("Cities");
+
+            $(".js-city-list").remove();
+
+            $(".js-weather-entries-table tbody tr").remove();
+        });
+     
 });
