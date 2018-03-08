@@ -8,31 +8,35 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="javascript/Index.js"></script>
     <script src="javascript/WeatherApp.js"></script>
-
     <!-- <link rel="stylesheet" href="stylesheets/Index.css"> -->
 </head>
 <body>
     <div>
         <h1>Weather App</h1>
+        <h2>Find the weather for your city today....</h2>
+        <h3>Weather for today is....</h3>
+        <h4>Add alt text for all images on the site</h4>
     </div>
     <div class="row">
         <div class="col-3">
             <div>
-                <button class="js-clear-saved-cities-button">Clear Cities List</button>
+                <button class="js-clear-saved-cities-button" tabindex="0">Clear favourites list</button>
+            </div>
+
+            <div>
+                <input class="js-add-new-city-text" type="text" alt="Add new city to my favourites textbox" tabindex="1">
+                <button class="js-add-new-city-button" alt="Add new city to my favourites button" tabindex="2">Add new city to my favourites</button>
             </div>
 
             </br>
 
             <div class="js-weather-cities-list">
-
+  
             </div>
 
             </br>
             
-            <div>
-                <input class="js-add-new-city-text" type="text">
-                <button class="js-add-new-city-button">Add New City</button>
-            </div>
+
         </div> <!-- 25% -->
         <div class="col-9">
             <table class="js-weather-entries-table c-weather-entries-table">

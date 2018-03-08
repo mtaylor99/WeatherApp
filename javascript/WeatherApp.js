@@ -35,7 +35,7 @@ function DisplayCitiesList() {
     var cityList = GetCitiesFromStorage().split(";");
 
     for (var i = 0; i < cityList.length; i++) {
-        var html = "<div><button class=\"js-city-list\">" + cityList[i] + "</button></div>";
+        var html = "<div><button class=\"js-city-list\" alt=" + cityList[i] + "\" tabindex=\"" + (i + 3) + "\">" + cityList[i] + "</button></div>";
 
         $(".js-weather-cities-list").after(html);
     }
