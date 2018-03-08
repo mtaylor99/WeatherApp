@@ -49,6 +49,8 @@ function GetAndDisplayWeatherData(city) {
 
             DisplayWeatherAppJquery();
             DisplayWeatherAppVue();
+
+            $(".js-weather-entries-fieldset-legend").text("Weather for your selected city '" + city + "'");
         });
 }
 

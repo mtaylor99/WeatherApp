@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="javascript/Index.js"></script>
     <script src="javascript/WeatherApp.js"></script>
-    <!-- <link rel="stylesheet" href="stylesheets/Index.css"> -->
+    <link rel="stylesheet" href="stylesheets/Index.css">
 </head>
 <body>
     <div>
@@ -19,53 +19,51 @@
     </div>
     <div class="row">
         <div class="col-3">
-            <div>
-                <button class="js-clear-saved-cities-button" tabindex="0">Clear favourites list</button>
-            </div>
-
-            <div>
-                <input class="js-add-new-city-text" type="text" alt="Add new city to my favourites textbox" tabindex="1">
-                <button class="js-add-new-city-button" alt="Add new city to my favourites button" tabindex="2">Add new city to my favourites</button>
-            </div>
-
-            </br>
-
-            <div class="js-weather-cities-list">
-  
-            </div>
+            <fieldset>
+                <legend>Manage your favourite cities</legend>
+                <div>
+                    <button class="js-clear-saved-cities-button" tabindex="0">Clear favourites list</button>
+                </div>
+    
+                <div>
+                    <input class="js-add-new-city-text" type="text" alt="Add new city to my favourites textbox" tabindex="1">
+                    <button class="js-add-new-city-button" alt="Add new city to my favourites button" tabindex="2">Add new city to my favourites</button>
+                </div>
+            </fieldset>
 
             </br>
-            
 
+            <fieldset>
+                <legend>Your favourite cities list</legend>
+
+                <div class="js-weather-cities-list">
+    
+                </div>
+            </fieldset>
         </div> <!-- 25% -->
         <div class="col-9">
-            <table class="js-weather-entries-table c-weather-entries-table">
-                <col width="50%">
-                <col width="50%">
-                <thead>
-                    <tr>
-                        <th>City Name</th>
-                        <th>Description</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody class="js-weather-entries-table-tbody">
+            <fieldset>
+                <legend class="js-weather-entries-fieldset-legend">Weather for your selected city</legend>
 
-                </tbody>
-            </table>
+                <table class="js-weather-entries-table c-weather-entries-table">
+                    <col width="50%">
+                    <col width="50%">
+                    <thead>
+                        <tr>
+                            <th>City Name</th>
+                            <th>Description</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody class="js-weather-entries-table-tbody">
+
+                    </tbody>
+                </table>
+            </fieldset>
         </div> <!-- 75% -->
     </div>
 
     <div class="js-vue-app">
         {{ message }}
-    </div>
-
-    <div id="wrapper">
-        <div id="leftcolumn" style="overflow-y: auto">
-
-        </div>
-        <div id="rightcolumn" class="js-weather-entries-div c-weather-entries-div" style="overflow:auto">
-            
-        </div>
     </div>
 </body>
