@@ -4,36 +4,46 @@
     <script src="javascript/WeatherApp.js"></script>
     <link rel="stylesheet" href="stylesheets/Index.css">
 </head>
-<body >
-        <div>
-            <h1>Weather App</h1>
-        </div>
-        <div id="app">
-            {{ message }}
-        </div>
-        <div id="wrapper">
-            <div id="leftcolumn" style="overflow-y: auto">
-                <div class="js-weather-cities-list">
+<body>
+    <div>
+        <h1>Weather App</h1>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="js-weather-cities-list">
 
-                </div>
-                <div>
-                    <button id="add">Add New City</button>
-                </div>
             </div>
-            <div id="rightcolumn" class="js-weather-entries-div c-weather-entries-div" style="overflow:auto">
-                <table class="js-weather-entries-table c-weather-entries-table" style="width:100%">
-                    <col width="50%">
-                    <col width="50%">
-                    <thead>
-                        <tr style="text-align: left">
-                            <th>Description</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-        
-                    </tbody>
-                </table>
+            <div>
+                <button id="add">Add New City</button>
             </div>
+        </div> <!-- 25% -->
+        <div class="col-9">
+            <table class="js-weather-entries-table c-weather-entries-table" style="width:100%">
+                <col width="50%">
+                <col width="50%">
+                <thead>
+                    <tr style="text-align: left">
+                        <th>Description</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+    
+                </tbody>
+            </table>
+        </div> <!-- 75% -->
+    </div>
+
+    <div id="app">
+        {{ message }}
+    </div>
+    
+    <div id="wrapper">
+        <div id="leftcolumn" style="overflow-y: auto">
+
         </div>
+        <div id="rightcolumn" class="js-weather-entries-div c-weather-entries-div" style="overflow:auto">
+            
+        </div>
+    </div>
 </body>
