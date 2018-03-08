@@ -1,3 +1,21 @@
+#wrapper {
+  width: 1005px;
+  margin: 0 auto; }
+
+#leftcolumn, #rightcolumn {
+  border: 1px solid white;
+  float: left;
+  min-height: 450px;
+  color: white; }
+
+#leftcolumn {
+  width: 250px;
+  background-color: #111; }
+
+#rightcolumn {
+  width: 750px;
+  background-color: #777; }
+
 h1 {
   font-family: "arial";
   font-size: 50px;
@@ -21,21 +39,3 @@ h1 {
       border: 1px solid #999999;
       text-align: center;
       border-color: #FF0000; }
-
-#wrapper {
-  width: 1005px;
-  margin: 0 auto; }
-
-#leftcolumn, #rightcolumn {
-  border: 1px solid white;
-  float: left;
-  min-height: 450px;
-  color: white; }
-
-#leftcolumn {
-  width: 250px;
-  background-color: #111; }
-
-#rightcolumn {
-  width: 750px;
-  background-color: #777; }

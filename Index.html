@@ -1,11 +1,15 @@
 <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="javascript/Index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="javascript/WeatherApp.js"></script>
     <link rel="stylesheet" href="stylesheets/Index.css">
 </head>
 <body >
         <div>
             <h1>Weather App</h1>
+        </div>
+        <div id="app">
+            {{ message }}
         </div>
         <div id="wrapper">
             <div id="leftcolumn" style="overflow-y: auto">

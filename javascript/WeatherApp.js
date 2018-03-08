@@ -20,6 +20,8 @@ $(document).ready(function(){
                 cityWeatherResults = result.list;
 
                 DisplayWeatherApp();
+
+                DisplayWeatherAppVue();
             });
     }
 
@@ -46,8 +48,22 @@ $(document).ready(function(){
         }
     }
 
+    function DisplayWeatherAppVue() {
+        var app = new Vue({
+            el: "#app",
+            data: {
+                todos: [
+                    { text: "Learn JavaScript" },
+                    { text: "Learn Vue" },
+                    { text: "Build something awesome" }
+                ],
+                weatherResults: cityWeatherResults,
+                message: "Hello Vue!"
+            }
+        });
+    }
+
     LoadCitiesFromCookie();
     PopulateCitiesList();
     GetWeatherData();
-    
 });
