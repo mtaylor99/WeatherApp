@@ -49,7 +49,7 @@ $(document).ready(function(){
 
     function DisplayWeatherAppVue() {
         var app = new Vue({
-            el: "#app",
+            el: ".js-vue-app",
             data: {
                 todos: [
                     { text: "Learn JavaScript" },
