@@ -68,28 +68,24 @@ function AddNewCityToList(name, temperature, weather) {
     $(".js-weather-cities-list").append(html.join(""));
 }
 
-function GetSummaryWeatherForCities(cityIds) {
+function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
     $.getJSON("http://api.openweathermap.org/data/2.5/group?APPID=8bfabc4405e188160d830fc5f133e398&units=metric&id=" + cityIds,
         function(result){  
+            var newTabIndex = $(".js-city-list").length + 3;
+
             for (var i = 0; i < result.cnt; i++) {
                 AddNewCityToArray(result.list[i].name, result.list[i].main.temp, result.list[i].weather[0].main);
+                AddNewCityToList(result.list[i].name, result.list[i].main.temp, result.list[i].weather[0].main, newTabIndex + i + 3);
             }
 
-            DisplaySummaryWeatherForCities();
-
-            GetAndDisplayWeatherDataForCity($(".js-city-list")[0].id); 
-        
-        });
-}
-
-function DisplaySummaryWeatherForCities() {
-    for (var i = 0; i < citiesSummaryWeather.length; i++) {
-        AddNewCityToList(citiesSummaryWeather[i][0], citiesSummaryWeather[i][1] , citiesSummaryWeather[i][2], i + 3);
-    }
-
-    $(".js-city-list").unbind("click")
-        .bind("click", function() {
-            GetAndDisplayWeatherDataForCity(event.srcElement.parentElement.id);
+            if (loadFirstCityWeather === true) {
+                GetAndDisplayWeatherDataForCity($(".js-city-list")[0].id); 
+            }
+            
+            $(".js-city-list").unbind("click")
+                .bind("click", function() {
+                    GetAndDisplayWeatherDataForCity(event.srcElement.parentElement.id);
+                });
         });
 }
 

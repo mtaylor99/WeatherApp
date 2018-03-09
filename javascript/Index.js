@@ -1,10 +1,10 @@
-/*global RemoveCitiesFromStorage GetAndDisplayWeatherData SaveCitiesToStorage GetCitiesFromStorage DisplayCitiesList GetSummaryWeatherForCities */
+/*global RemoveCitiesFromStorage GetCitiesFromStorage GetAndDisplayWeatherDataForCity GetSummaryWeatherForCities */
 
 $(document).ready(function(){
 
     var cityIds = GetCitiesFromStorage();
 
-    GetSummaryWeatherForCities(cityIds);
+    GetSummaryWeatherForCities(cityIds, true);
 
     $( ".js-add-new-city-dialog" ).dialog({
         autoOpen: false
@@ -26,17 +26,14 @@ $(document).ready(function(){
 
     $(".js-add-new-city-button").unbind("click")
         .bind("click", function() {
+            var newCity = $(".js-new-cities-select-list option:selected").text();
             var newCityId = $(".js-new-cities-select-list").val();
-            var newTabIndex = $(".js-city-list").length + 3;
 
-            /*
-            debugger;
-            var html = "<div class=\"c-city-widget \"><button class=\"js-city-list\" alt=" + newCityId + "\" tabindex=\"" + newTabIndex + "\">" + newCityId + "</button></div>";
+            GetSummaryWeatherForCities(newCityId, false);
 
-            SaveCitiesToStorage(newCityName);
-            $(".js-weather-cities-list").append(html);
-            GetAndDisplayWeatherData(newCityName);
-            */
+            $(".js-add-new-city-dialog" ).dialog("close");
+
+            GetAndDisplayWeatherDataForCity(newCity); 
         });  
 
     $(".js-cancel-add-new-city-button").unbind("click")
