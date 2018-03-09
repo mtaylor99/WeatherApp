@@ -1,9 +1,10 @@
-/*global RemoveCitiesFromStorage GetAndDisplayWeatherData SaveCitiesToStorage GetCitiesFromStorage DisplayCitiesList */
+/*global RemoveCitiesFromStorage GetAndDisplayWeatherData SaveCitiesToStorage GetCitiesFromStorage DisplayCitiesList GetSummaryWeatherForCities */
 
 $(document).ready(function(){
 
     GetCitiesFromStorage();
-    DisplayCitiesList();
+    //DisplayCitiesList();
+    GetSummaryWeatherForCities("2643743,4219762,5128638,6167865,3614789,292223");
     GetAndDisplayWeatherData("London"); 
 
     $(".js-clear-saved-cities-button").unbind("click")
@@ -11,11 +12,6 @@ $(document).ready(function(){
             RemoveCitiesFromStorage();
             $(".cityWidget").remove();
             $(".js-weather-entries-table tbody tr").remove();
-        });
-
-    $(".js-city-list").unbind("click")
-        .bind("click", function() {
-            GetAndDisplayWeatherData(event.srcElement.textContent);
         });
 
     $(".js-add-new-city-button").unbind("click")
