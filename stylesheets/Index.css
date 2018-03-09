@@ -61,3 +61,12 @@ button {
   background-color: yellow;
   font-family: Verdana, Helvetica, sans-serif;
   font-size: 18px; }
+
+.c-city-widget {
+  background-color: #f1f1f1;
+  width: 100px;
+  min-width: 100px;
+  margin: 10px;
+  text-align: center;
+  height: 200px;
+  font-size: 30px; }

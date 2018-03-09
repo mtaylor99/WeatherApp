@@ -5,6 +5,10 @@ var currentCityName;
 var cityWeatherResults;
 var citiesSummaryWeather = [];
 
+//****************************************************************************************************************** */
+// STORAGE MANAGEMENT
+//****************************************************************************************************************** */
+
 function RemoveCitiesFromStorage() {    
     window.localStorage.removeItem("Cities");
 }
@@ -13,7 +17,7 @@ function GetCitiesFromStorage() {
     cities = localStorage.getItem("Cities");
 
     if (cities === null) {
-        cities = "London;Rome;New York;Toronto;Berlin;Dubai";
+        cities = "2643743,4219762,5128638,6167865,3614789,292223";
         SaveCitiesToStorage(cities);
     }
 
@@ -32,14 +36,17 @@ function SaveCitiesToStorage(cities) {
     window.localStorage.setItem("Cities", currentSavedCities);
 }
 
-function DisplayCitiesList() {
-    var cityList = GetCitiesFromStorage().split(";");
+//****************************************************************************************************************** */
+// CITY LIST MANAGEMENT
+//****************************************************************************************************************** */
 
-    for (var i = 0; i < cityList.length; i++) {
-        var html = "<div class=\"cityWidget\"><button class=\"js-city-list\" alt=" + cityList[i] + "\" tabindex=\"" + (i + 3) + "\">" + cityList[i] + "</button></div>";
+function AddNewCityToArray(name, temperature, weather) {
+    var citySummary = new Array();
 
-        $(".js-weather-cities-list").append(html);
-    }
+    citySummary[0] =  name;
+    citySummary[1] =  temperature;
+    citySummary[2] =  weather;
+    citiesSummaryWeather.push(citySummary);
 }
 
 function AddNewCityToList(name, temperature, weather) {   
@@ -47,7 +54,7 @@ function AddNewCityToList(name, temperature, weather) {
     var newTabIndex = $(".js-city-list").length + 3;
     
     html.push(
-        "<div class=\"cityWidget\">",
+        "<div class=\"c-city-widget \">",
         "<button id=\"" + name + "\" class=\"js-city-list\" alt=" + name + "\" tabindex=\"" + newTabIndex + "\">",
         "<label>" + name + "</label>",
         "<br/>",
@@ -61,6 +68,20 @@ function AddNewCityToList(name, temperature, weather) {
     $(".js-weather-cities-list").append(html.join(""));
 }
 
+function GetSummaryWeatherForCities(cityIds) {
+    $.getJSON("http://api.openweathermap.org/data/2.5/group?APPID=8bfabc4405e188160d830fc5f133e398&units=metric&id=" + cityIds,
+        function(result){  
+            for (var i = 0; i < result.cnt; i++) {
+                AddNewCityToArray(result.list[i].name, result.list[i].main.temp, result.list[i].weather[0].main);
+            }
+
+            DisplaySummaryWeatherForCities();
+
+            GetAndDisplayWeatherDataForCity($(".js-city-list")[0].id); 
+        
+        });
+}
+
 function DisplaySummaryWeatherForCities() {
     for (var i = 0; i < citiesSummaryWeather.length; i++) {
         AddNewCityToList(citiesSummaryWeather[i][0], citiesSummaryWeather[i][1] , citiesSummaryWeather[i][2], i + 3);
@@ -68,27 +89,15 @@ function DisplaySummaryWeatherForCities() {
 
     $(".js-city-list").unbind("click")
         .bind("click", function() {
-            GetAndDisplayWeatherData(event.srcElement.parentElement.id);
+            GetAndDisplayWeatherDataForCity(event.srcElement.parentElement.id);
         });
 }
 
-function GetSummaryWeatherForCities(cityIds) {
-    $.getJSON("http://api.openweathermap.org/data/2.5/group?APPID=8bfabc4405e188160d830fc5f133e398&units=metric&id=" + cityIds,
-        function(result){  
-            for (var i = 0; i < result.cnt; i++) {
-                var citySummary = new Array();
+//****************************************************************************************************************** */
+// CITY WEATHER DETAILS
+//****************************************************************************************************************** */
 
-                citySummary[0] =  result.list[i].name;
-                citySummary[1] =  result.list[i].main.temp;
-                citySummary[2] =  result.list[i].weather[0].main;
-                citiesSummaryWeather.push(citySummary);
-            }
-
-            DisplaySummaryWeatherForCities();
-        });
-}
-
-function GetAndDisplayWeatherData(city) {
+function GetAndDisplayWeatherDataForCity(city) {
     $.getJSON("http://api.openweathermap.org/data/2.5/forecast?APPID=8bfabc4405e188160d830fc5f133e398&q=" + city,
         function(result){  
             currentCityName = result.city.name;
