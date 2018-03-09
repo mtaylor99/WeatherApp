@@ -9,7 +9,7 @@ $(document).ready(function(){
     $(".js-clear-saved-cities-button").unbind("click")
         .bind("click", function() {
             RemoveCitiesFromStorage();
-            $(".js-city-list").remove();
+            $(".cityWidget").remove();
             $(".js-weather-entries-table tbody tr").remove();
         });
 
@@ -22,10 +22,10 @@ $(document).ready(function(){
         .bind("click", function() {
             var newCityName = $(".js-add-new-city-text").val();
             var newTabIndex = $(".js-city-list").length + 3;
-            var html = "<div><button class=\"js-city-list\" alt=" + newCityName + "\" tabindex=\"" + newTabIndex + "\">" + newCityName + "</button></div>";
+            var html = "<div class=\"cityWidget\"><button class=\"js-city-list\" alt=" + newCityName + "\" tabindex=\"" + newTabIndex + "\">" + newCityName + "</button></div>";
 
             SaveCitiesToStorage(newCityName);
-            $(".js-weather-cities-list").after(html);
+            $(".js-weather-cities-list").append(html);
             GetAndDisplayWeatherData(newCityName);
         });
 

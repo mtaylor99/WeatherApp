@@ -9,6 +9,18 @@
     <script src="javascript/Index.js"></script>
     <script src="javascript/WeatherApp.js"></script>
     <link rel="stylesheet" href="stylesheets/Index.css">
+
+    <style>
+        .cityWidget {
+          background-color: #f1f1f1;
+          width: 100px;
+          min-width: 100px;
+          margin: 10px;
+          text-align: center;
+          height: 200px;
+          font-size: 30px;
+        }
+    </style>
 </head>
 <body>
     <div>
@@ -17,31 +29,32 @@
         <h3>Weather for today is....</h3>
         <h4>Add alt text for all images on the site</h4>
     </div>
-    <div class="row">
-        <div class="col-3">
-            <fieldset>
-                <legend>Manage your favourite cities</legend>
-                <div>
-                    <button class="js-clear-saved-cities-button" tabindex="0">Clear favourites list</button>
-                </div>
-    
-                <div>
-                    <input class="js-add-new-city-text" type="text" alt="Add new city to my favourites textbox" tabindex="1">
-                    <button class="js-add-new-city-button" alt="Add new city to my favourites button" tabindex="2">Add new city to my favourites</button>
-                </div>
-            </fieldset>
-
-            </br>
-
+    <div class="g-main-content">
+        <div class="g-cities-management">
+            <div class="g-city-management">
+                <fieldset>
+                    <legend>Manage your favourite cities</legend>
+                    <div>
+                        <button class="js-clear-saved-cities-button" tabindex="0">Clear favourites list</button>
+                    </div>
+        
+                    <div>
+                        <input class="js-add-new-city-text" type="text" alt="Add new city to my favourites textbox" tabindex="1">
+                        <button class="js-add-new-city-button" alt="Add new city to my favourites button" tabindex="2">Add new city to my favourites</button>
+                    </div>
+                </fieldset>
+            </div>
+            <div>
             <fieldset>
                 <legend>Your favourite cities list</legend>
-
-                <div class="js-weather-cities-list">
-    
-                </div>
-            </fieldset>
-        </div> <!-- 25% -->
-        <div class="col-9">
+                <div class="js-weather-cities-list g-city-widgets" style="height:500px; overflow-y:scroll">
+                    <div class="cityWidget">1</div>
+                    <div class="cityWidget">2</div>
+                </div>  
+            </fieldset>  
+        </div>   
+        </div>
+        <div class="g-weather-details">
             <fieldset>
                 <legend class="js-weather-entries-fieldset-legend">Weather for your selected city</legend>
 
@@ -60,7 +73,7 @@
                     </tbody>
                 </table>
             </fieldset>
-        </div> <!-- 75% -->
+        </div>  
     </div>
 
     <div class="js-vue-app">

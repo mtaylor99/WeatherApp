@@ -1,69 +1,44 @@
-* {
-  box-sizing: border-box; }
+.g-main-content {
+  display: flex;
+  height: 100%; }
 
-.col-1 {
-  width: 8.33%; }
+.g-city-widgets {
+  display: flex;
+  background-color: DodgerBlue; }
 
-.col-2 {
-  width: 16.66%; }
+@media only screen and (max-width: 768px) {
+  .g-main-content {
+    flex-direction: column; }
 
-.col-3 {
-  width: 25%; }
+  .g-city-widgets {
+    flex-direction: row;
+    min-height: 240px;
+    max-height: 220px;
+    overflow-x: auto; } }
+@media only screen and (min-width: 768px) {
+  .g-main-content {
+    flex-direction: row; }
 
-.col-4 {
-  width: 33.33%; }
+  .g-city-widgets {
+    flex-wrap: wrap;
+    height: 100%;
+    overflow-y: scoll;
+    flex: 1; }
 
-.col-5 {
-  width: 41.66%; }
+  .g-cities-management {
+    height: 100%;
+    min-width: 260px;
+    max-width: 410px; } }
+.g-weather-details {
+  flex: 3;
+  min-width: 500px;
+  background-color: yellow; }
 
-.col-6 {
-  width: 50%; }
-
-.col-7 {
-  width: 58.33%; }
-
-.col-8 {
-  width: 66.66%; }
-
-.col-9 {
-  width: 75%; }
-
-.col-10 {
-  width: 83.33%; }
-
-.col-11 {
-  width: 91.66%; }
-
-.col-12 {
-  width: 100%; }
-
-[class*="col-"] {
-  float: left;
-  padding: 15px;
-  border: 1px solid #ff0000; }
-
-.row::after {
-  content: "";
-  clear: both;
-  display: table; }
-
-#wrapper {
-  width: 1005px;
-  margin: 0 auto; }
-
-#leftcolumn, #rightcolumn {
-  border: 1px solid white;
-  float: left;
-  min-height: 450px;
-  color: white; }
-
-#leftcolumn {
-  width: 250px;
-  background-color: #111; }
-
-#rightcolumn {
-  width: 750px;
-  background-color: #777; }
+h1 {
+  font-family: "Arial", serif;
+  font-weight: bold;
+  font-size: 40px;
+  color: blue; }
 
 h1 {
   font-family: "arial";
@@ -85,4 +60,4 @@ table {
 button {
   background-color: yellow;
   font-family: Verdana, Helvetica, sans-serif;
-  font-size: 28px; }
+  font-size: 18px; }
