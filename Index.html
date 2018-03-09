@@ -1,5 +1,6 @@
 <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine-3.1.0/jasmine_favicon.png">
     <link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine-3.1.0/jasmine.css">
     <script type="text/javascript" src="jasmine/lib/jasmine-3.1.0/jasmine.js"></script>
@@ -9,6 +10,16 @@
     <script src="javascript/Index.js"></script>
     <script src="javascript/WeatherApp.js"></script>
     <link rel="stylesheet" href="stylesheets/Index.css">
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+
+    <style>
+            .ui-widget-header,.ui-state-default, ui-button {
+               background:#b9cd6d;
+               border: 1px solid #b9cd6d;
+               color: #FFFFFF;
+               font-weight: bold;
+            }
+         </style>
 </head>
 <body>
     <div>
@@ -65,5 +76,30 @@
 
     <div class="js-vue-app">
         {{ message }}
+    </div>
+
+    <!-- Dialog --> 
+    <div class="js-add-new-city-dialog" title ="Add a new city to your favourites">
+        <fieldset>
+            <legend>Add a new city to your favourites</legend>
+
+            <select>
+                <option value="5549222">Washington</option>
+                <option value="2618425">Copenhagen</option>
+                <option value="3675707">Madrid</option>
+                <option value="4548393">Prague</option>
+                <option value="4825976">Vienna</option>
+                <option value="2154855">Sydney</option>
+                <option value="1850147">Tokyo</option>
+                <option value="1816670">Beijing</option>
+                <option value="4257043">Edinburgh</option>
+                <option value="4687151">Dublin</option>
+                <option value="2172349">Cardiff</option>
+            </select>
+
+            <button class="js-add-new-city-button" alt="Add button" tabindex="1">Add</button>
+            <button class="js-cancel-new-city-button" alt="Cancel button" tabindex="2">Cancel</button>
+
+        </fieldset>
     </div>
 </body>

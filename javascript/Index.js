@@ -6,6 +6,10 @@ $(document).ready(function(){
 
     GetSummaryWeatherForCities(cityIds);
 
+    $( ".js-add-new-city-dialog" ).dialog({
+        autoOpen: false
+    });
+
     $(".js-clear-saved-cities-button").unbind("click")
         .bind("click", function() {
             RemoveCitiesFromStorage();
@@ -15,14 +19,20 @@ $(document).ready(function(){
 
     $(".js-add-new-city-button").unbind("click")
         .bind("click", function() {
-            var newCityName = $(".js-add-new-city-text").val();
+            $(".js-add-new-city-dialog" ).dialog("open");
+
+
+            /* var newCityName = $(".js-add-new-city-text").val();
             var newTabIndex = $(".js-city-list").length + 3;
             var html = "<div class=\"c-city-widget \"><button class=\"js-city-list\" alt=" + newCityName + "\" tabindex=\"" + newTabIndex + "\">" + newCityName + "</button></div>";
 
             SaveCitiesToStorage(newCityName);
             $(".js-weather-cities-list").append(html);
-            GetAndDisplayWeatherData(newCityName);
+            GetAndDisplayWeatherData(newCityName); */
         });
 
-
+    $(".js-cancel-new-city-button").unbind("click")
+        .bind("click", function() {
+            $(".js-add-new-city-dialog" ).dialog("close");
+        });    
 });
