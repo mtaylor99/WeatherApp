@@ -34,12 +34,11 @@
                 <fieldset>
                     <legend>Manage your favourite cities</legend>
                     <div>
-                        <button class="js-clear-saved-cities-button" tabindex="0">Clear favourites list</button>
+                        <button class="js-clear-favourite-cities-button" tabindex="0">Clear favourites list</button>
                     </div>
         
                     <div>
-                        <input class="js-add-new-city-text" type="text" alt="Add new city to my favourites textbox" tabindex="1">
-                        <button class="js-add-new-city-button" alt="Add new city to my favourites button" tabindex="2">Add new city to my favourites</button>
+                        <button class="js-manage-favourite-cities-button" alt="Manage your favourite cities list" tabindex="2">Manage your favourite cities list</button>
                     </div>
                 </fieldset>
             </div>
@@ -83,7 +82,7 @@
         <fieldset>
             <legend>Add a new city to your favourites</legend>
 
-            <select>
+            <select class="js-new-cities-select-list">
                 <option value="5549222">Washington</option>
                 <option value="2618425">Copenhagen</option>
                 <option value="3675707">Madrid</option>
@@ -98,7 +97,7 @@
             </select>
 
             <button class="js-add-new-city-button" alt="Add button" tabindex="1">Add</button>
-            <button class="js-cancel-new-city-button" alt="Cancel button" tabindex="2">Cancel</button>
+            <button class="js-cancel-add-new-city-button" alt="Cancel button" tabindex="2">Cancel</button>
 
         </fieldset>
     </div>
