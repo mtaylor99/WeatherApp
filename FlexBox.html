@@ -1,0 +1,100 @@
+<head>
+  <style>
+    h1 {
+      font-family: "Arial", serif;
+      font-weight: bold;
+      font-size: 40px;
+      color: blue;
+    }
+    .mainContent {
+      display: flex;
+      height:100%;
+    }
+    
+    .cityWidgets {
+      display: flex;
+      background-color: DodgerBlue;
+    }
+    
+    @media only screen and (max-width: 768px) {
+      .mainContent {
+        flex-direction: column;
+      }
+
+      .cityWidgets {
+        flex-direction: row;
+        min-height: 240px;
+        max-height: 220px;         
+        overflow-x: auto;   
+      }
+    }
+  
+    @media only screen and (min-width: 768px) {
+      .mainContent {
+        flex-direction: row;
+      }
+
+      .cityWidgets {
+        flex-wrap: wrap;
+
+        overflow-y: auto;
+        flex: 1;
+      }
+      
+      .citiesManagement {
+        height: 100%;
+        overflow-y: auto;
+        min-width: 260px;
+        max-width: 380px;
+      }
+    }
+       
+    .cityWidget {
+      background-color: #f1f1f1;
+      width: 100px;
+      min-width: 100px;
+      margin: 10px;
+      text-align: center;
+      height: 200px;
+      font-size: 30px;
+    }
+    
+    .weatherDetails {
+      flex: 3;
+      min-width: 500px;
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Weather App</h1>
+  </div>
+  <div class="mainContent">
+    <div class="citiesManagement">
+      <div class="addButton">
+         Add Button
+      </div>
+      <div class="cityWidgets">
+        <div class="cityWidget">1</div>
+        <div class="cityWidget">2</div>
+        <div class="cityWidget">3</div>  
+        <div class="cityWidget">4</div>
+        <div class="cityWidget">5</div>
+        <div class="cityWidget">6</div>  
+        <div class="cityWidget">7</div>
+        <div class="cityWidget">8</div>
+        <div class="cityWidget">9</div>  
+        <div class="cityWidget">10</div>
+        <div class="cityWidget">11</div>
+        <div class="cityWidget">12</div>  
+        <div class="cityWidget">12</div>  
+        <div class="cityWidget">12</div>  
+        <div class="cityWidget">12</div>  
+      </div>       
+      </div>
+      <div class="weatherDetails">
+        Details
+      </div>  
+  </div>
+</body>
