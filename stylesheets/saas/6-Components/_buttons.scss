@@ -6,3 +6,27 @@ button {
         size: 18px;
     }
 }
+
+.c-favourite-cities-button {
+    width:32px;
+    height:32px;
+    border: none;
+    padding: 0;
+    margin-right:5px;
+}
+
+.c-clear-favourite-cities-button {
+    background:url(../images/icons/delete/delete32.png);
+    background-repeat: no-repeat;
+}
+
+.c-manage-favourite-cities-button {
+    background:url(../images/icons/add/add32.png);
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+
