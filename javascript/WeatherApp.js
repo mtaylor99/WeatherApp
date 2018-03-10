@@ -54,7 +54,7 @@ function AddNewCityToList(name, temperature, weather) {
     var newTabIndex = $(".js-city-list").length + 3;
     
     html.push(
-        "<div class=\"c-city-widget \">",
+        "<div class=\"c-city-widget\">",
         "<button id=\"" + name + "\" class=\"js-city-list\" alt=" + name + "\" tabindex=\"" + newTabIndex + "\">",
         "<label>" + name + "</label>",
         "<br/>",

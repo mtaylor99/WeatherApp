@@ -1,9 +1,23 @@
 .c-city-widget {
-    background-color: $color-light-gray;
+  background-color: $color-light-gray;
+  margin: 10px;
+  text-align: center;
+  font-size: 30px;
+}
+
+
+@media only screen and (max-width: 768px) {  //Mobile
+  .c-city-widget {
     width: 100px;
     min-width: 100px;
-    margin: 10px;
-    text-align: center;
-    height: 200px;
-    font-size: 30px;
+    height: 100px;
   }
+}
+
+@media only screen and (min-width: 768px) { //Web
+  .c-city-widget {
+    width: 100px;
+    min-width: 100px;
+    height: 200px;
+  }
+}
