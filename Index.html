@@ -11,22 +11,10 @@
     <script src="javascript/WeatherApp.js"></script>
     <link rel="stylesheet" href="stylesheets/Index.css">
     <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
-
-    <style>
-            .ui-widget-header,.ui-state-default, ui-button {
-               background:#b9cd6d;
-               border: 1px solid #b9cd6d;
-               color: #FFFFFF;
-               font-weight: bold;
-            }
-         </style>
 </head>
 <body>
-    <div>
+    <div class="c-header">
         <h1>Weather App</h1>
-        <h2>Find the weather for your city today....</h2>
-        <h3>Weather for today is....</h3>
-        <h4>Add alt text for all images on the site</h4>
     </div>
     <div class="g-main-content">
         <div class="g-cities-management">
@@ -78,7 +66,7 @@
     </div>
 
     <!-- Dialog --> 
-    <div class="js-add-new-city-dialog" title ="Add a new city to your favourites">
+    <div class="js-add-new-city-dialog c-add-new-city-dialog" title ="Add a new city to your favourites">
         <fieldset>
             <legend>Add a new city to your favourites</legend>
 

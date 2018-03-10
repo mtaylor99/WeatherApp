@@ -35,6 +35,9 @@ h1 {
   font-size: 40px;
   color: blue; }
 
+fieldset {
+  color: blue; }
+
 h1 {
   font-family: "arial";
   font-size: 50px;
@@ -65,5 +68,21 @@ button {
   text-align: center;
   height: 200px;
   font-size: 30px; }
+
+.c-header {
+  background-image: url("../images/weatherbanner.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 130px;
+  height: 130px;
+  padding-left: 10px; }
+  .c-header h1 {
+    color: white; }
+
+.c-add-new-city-dialog {
+  background-color: red;
+  font-family: Verdana,Arial,sans-serif;
+  font-size: .8em; }
+  .c-add-new-city-dialog button {
+    background-color: red; }
 
 /*# sourceMappingURL=Index.css.map */

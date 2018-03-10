@@ -7,7 +7,8 @@ $(document).ready(function(){
     GetSummaryWeatherForCities(cityIds, true);
 
     $( ".js-add-new-city-dialog" ).dialog({
-        autoOpen: false
+        autoOpen: false,
+        dialogClass: "c-add-new-city-dialog"
     });
 
     $(".js-clear-favourite-cities-button").unbind("click")
