@@ -3,8 +3,7 @@
 
 .g-city-widgets {
   display: flex;
-  flex-wrap: wrap;
-  background-color: DodgerBlue; }
+  flex-wrap: wrap; }
 
 @media only screen and (max-width: 768px) {
   .g-main-content {
