@@ -158,9 +158,11 @@ button {
   .c-header h1 {
     color: #ffffff; }
 
-.c-add-new-city-dialog {
-  background-color: #ff0000;
-  font-family: Verdana,Arial,sans-serif;
-  font-size: .8em; }
-  .c-add-new-city-dialog button {
-    background-color: #ff0000; }
+.ui-widget-header {
+  background: #339FFF;
+  color: #ffffff; }
+
+.ui-widget-content {
+  background: #ffffff;
+  border: 1px solid #339FFF;
+  color: #0000FF; }

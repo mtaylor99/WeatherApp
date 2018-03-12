@@ -24,6 +24,10 @@ $(document).ready(function(){
 
     $(".js-manage-favourite-cities-button").unbind("click")
         .bind("click", function() {
+            $(".js-add-new-city-dialog").dialog({ 
+                width: 500, 
+                height: 150
+            });
             $(".js-add-new-city-dialog" ).dialog("open");
         });
 

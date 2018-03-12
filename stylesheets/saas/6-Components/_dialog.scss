@@ -1,9 +1,10 @@
-.c-add-new-city-dialog {
-    background-color: $color-red;
-    font-family: Verdana,Arial,sans-serif;
-    font-size: .8em;
+.ui-widget-header {
+    background: $color-light-blue;
+    color: $color-white;
+}
 
-    button {
-        background-color: $color-red;
-    }
+.ui-widget-content {
+    background: $color-white;
+    border: 1px solid $color-light-blue;
+    color: $color-blue;
 }
