@@ -100,18 +100,27 @@ function GetWeatherIcon(weather) {
     }  
 }
 
+function GetTemperatureRange(temperature) {
+    if (temperature <= 5)
+        return "cold";
+    else if ((temperature > 5) && (temperature <= 15))
+        return "medium";
+    else if (temperature > 15)
+        return "hot";
+}
+
 function AddNewCityToList(name, temperature, weather) {   
     var html = [];
     var newTabIndex = $(".js-city-list").length + 3;
 
     html.push(
         "<div class=\"c-city-widget\">",
-        "<button id=\"" + name + "\" class=\"js-city-list\" alt=" + name + "\" tabindex=\"" + newTabIndex + "\">",
-        "<span class=\"c-city-widget-city\"><label>" + name + "</label></span>",
+        "<button id=\"" + name + "\" class=\"js-city-list c-city-widget-button\" alt=" + name + "\" tabindex=\"" + newTabIndex + "\">",
+        "<div class=\"c-city-widget-city\"><label>" + name + "</label></div>",
         "<br/>",
-        "<span class=\"c-city-widget-weather-icon\"><img src=\"" + GetWeatherIcon(weather) + "\"></img></span>",
+        "<div class=\"c-city-widget-weather-icon\"><img src=\"" + GetWeatherIcon(weather) + "\"></img></div>",
         "<br/>",
-        "<span class=\"c-city-widget-temperature\"><label>" + temperature + " &#8451</label></span>",
+        "<div><label class=\"c-city-widget-temperature-" + GetTemperatureRange(temperature) + "\">" + temperature + " &#8451</label></div>",
         "</button>",
         "</div>"
     );
@@ -130,8 +139,6 @@ function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
             }
 
             if (loadFirstCityWeather === true) {
-                debugger;
-
                 GetAndDisplayWeatherDataForCity($(".js-city-list")[0].id); 
 
                 $(".c-city-widget").first().addClass("c-city-widget-selected");
