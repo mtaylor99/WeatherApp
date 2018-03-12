@@ -4,11 +4,7 @@ $(document).ready(function(){
 
     var cityIds = GetCitiesFromStorage();
 
-    PageSize();
-
     GetSummaryWeatherForCities(cityIds, true);
-
-    $(window).resize(PageSize);
 
     $( ".js-add-new-city-dialog" ).dialog({
         autoOpen: false,

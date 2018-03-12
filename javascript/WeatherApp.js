@@ -2,42 +2,10 @@
 
 const KELVIN_TO_CELSIUS = 273.15;
 
-var pageSize = "";
 var cities;
 var currentCityName;
 var cityWeatherResults;
 var citiesSummaryWeather = [];
-
-//****************************************************************************************************************** */
-// PAGE MANAGEMENT
-//****************************************************************************************************************** */
-
-function PageSize() {
-    var mainContent = $(".o-main-content");
-
-    if (mainContent.css("flex-direction") === "row") { //Web
-
-        if (pageSize === "Mobile") {
-            ReSizeContent("Web");
-        }
-
-        pageSize = "Web";
-    } else {        
-        if (pageSize === "Web") {
-            ReSizeContent("Web");
-        }
-
-        pageSize = "Mobile";
-    }
-}
-
-function ReSizeContent() {
-    ;
-}
-
-//****************************************************************************************************************** */
-// STORAGE MANAGEMENT
-//****************************************************************************************************************** */
 
 function RemoveCitiesFromStorage() {    
     window.localStorage.removeItem("Cities");
@@ -66,22 +34,19 @@ function SaveCitiesToStorage(cities) {
     window.localStorage.setItem("Cities", currentSavedCities);
 }
 
-//****************************************************************************************************************** */
-// CITY LIST MANAGEMENT
-//****************************************************************************************************************** */
-
 function AddNewCityToArray(name, temperature, weather) {
-    var citySummary = new Array();
+    var city = {
+        name: name, 
+        temperature: temperature,
+        weather: weather 
+    };
 
-    citySummary[0] =  name;
-    citySummary[1] =  temperature;
-    citySummary[2] =  weather;
-    citiesSummaryWeather.push(citySummary);
+    citiesSummaryWeather.push(city);
 }
 
 function GetSummaryForCity(city) {
     for (var i = 0; i < citiesSummaryWeather.length; i++) {
-        if (citiesSummaryWeather[i][0] === city)
+        if (citiesSummaryWeather[i].name === city)
         return citiesSummaryWeather[i];
     }
 }
@@ -127,7 +92,7 @@ function AddNewCityToList(name, temperature, weather) {
         "<br/>",
         "<div class=\"c-city-widget-weather-icon\"><img src=\"" + GetWeatherIcon(weather) + "\"></img></div>",
         "<br/>",
-        "<div><label class=\"c-city-widget-temperature-" + GetTemperatureRange(temperature) + "\">" + temperature + " &#8451</label></div>",
+        "<div><label class=\"c-city-widget-temperature-" + GetTemperatureRange(temperature) + "\">" + temperature.toFixed(1) + " &#8451</label></div>",
         "</button>",
         "</div>"
     );
@@ -164,10 +129,6 @@ function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
         });
 }
 
-//****************************************************************************************************************** */
-// CITY WEATHER DETAILS
-//****************************************************************************************************************** */
-
 function GetAndDisplayWeatherDataForCity(city) {
     $.getJSON("http://api.openweathermap.org/data/2.5/forecast?APPID=8bfabc4405e188160d830fc5f133e398&q=" + city,
         function(result){  
@@ -179,10 +140,10 @@ function GetAndDisplayWeatherDataForCity(city) {
             DisplayWeatherAppJquery();
             DisplayWeatherAppVue();
 
-            $(".js-weather-entries-fieldset-legend").text("Weather for your selected city '" + city + "'");
-            $(".js-weather-details-banner-city-name").text(currentCityName);
-            $(".js-weather-details-banner-weather-icon").attr("src",GetWeatherIcon(citySummary[2]));
-            $(".js-weather-details-banner-weather-temperature").html(citySummary[1].toFixed(2) + " &#8451");
+            $(".js-weather-entries-fieldset-legend").text("Weather for your selected city '" + citySummary.name + "'");
+            $(".js-weather-details-banner-city-name").text(citySummary.name);
+            $(".js-weather-details-banner-weather-icon").attr("src",GetWeatherIcon(citySummary.weather));
+            $(".js-weather-details-banner-weather-temperature").html(citySummary.temperature.toFixed(1) + " &#8451");
         });
 }
 
