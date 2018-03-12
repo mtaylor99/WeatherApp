@@ -1,0 +1,23 @@
+@mixin font-family($file-path, $file-name, $family,  $weight: normal, $style: normal, $stretch: normal) {
+    @font-face {
+        font: {
+            family: "#{$family}";
+            weight: $weight;
+            style: $style;
+            stretch: $stretch;
+        }
+
+        src: url("#{$file-path}/#{$file-name}.eot");
+        src: url("#{$file-path}/#{$file-name}.eot?#iefix") format("embedded-opentype"),
+        url("#{$file-path}/#{$file-name}.woff") format("woff"),
+        url("#{$file-path}/#{$file-name}.woff2") format("woff2"),
+        url("#{$file-path}/#{$file-name}.ttf") format("truetype"),
+        url("#{$file-path}/#{$file-name}.svg##{$family}") format("svg");
+    }
+}
+
+@mixin opacity($value) {
+    opacity: $value;
+    //IE8 Opacity
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$value})";
+}

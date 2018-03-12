@@ -1,9 +1,37 @@
 /* eslint-disable no-unused-vars */
 
+var pageSize = "";
 var cities;
 var currentCityName;
 var cityWeatherResults;
 var citiesSummaryWeather = [];
+
+//****************************************************************************************************************** */
+// PAGE MANAGEMENT
+//****************************************************************************************************************** */
+
+function PageSize() {
+    var mainContent = $(".g-main-content");
+
+    if (mainContent.css("flex-direction") === "row") { //Web
+
+        if (pageSize === "Mobile") {
+            ReSizeContent("Web");
+        }
+
+        pageSize = "Web";
+    } else {        
+        if (pageSize === "Web") {
+            ReSizeContent("Web");
+        }
+
+        pageSize = "Mobile";
+    }
+}
+
+function ReSizeContent() {
+    ;
+}
 
 //****************************************************************************************************************** */
 // STORAGE MANAGEMENT
@@ -49,18 +77,27 @@ function AddNewCityToArray(name, temperature, weather) {
     citiesSummaryWeather.push(citySummary);
 }
 
+function GetWeatherIcon(weather) {
+
+    if (pageSize === "Mobile") {
+        return "images/icons/sunny/sunny16.png";
+    } else if (pageSize === "Web") {
+        return "images/icons/sunny/sunny32.png";
+    }  
+}
+
 function AddNewCityToList(name, temperature, weather) {   
     var html = [];
     var newTabIndex = $(".js-city-list").length + 3;
-    
+
     html.push(
         "<div class=\"c-city-widget\">",
         "<button id=\"" + name + "\" class=\"js-city-list\" alt=" + name + "\" tabindex=\"" + newTabIndex + "\">",
-        "<label>" + name + "</label>",
+        "<span class=\"c-city-widget-city\"><label>" + name + "</label></span>",
         "<br/>",
-        "<label>Icon: " + weather  + "</label>",
+        "<span class=\"c-city-widget-weather-icon\"><img src=\"" + GetWeatherIcon(weather) + "\"></img></span>",
         "<br/>",
-        "<label>Temp (oC): " + temperature  + "</label>",
+        "<span class=\"c-city-widget-temperature\"><label>" + temperature + " &#8451</label></span>",
         "</button>",
         "</div>"
     );

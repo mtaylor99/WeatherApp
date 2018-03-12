@@ -1,8 +1,8 @@
 .c-header {
-    background-image: url("../images/weatherbanner.jpg");
+    background-image: $header-banner-image;
     background-repeat: no-repeat;
-    background-size:100% 130px;
-    height:130px;
+    background-size: 100% 130px;
+    height: 130px;
     padding-left: 10px;
 
     h1 {

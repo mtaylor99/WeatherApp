@@ -1,10 +1,14 @@
-/*global RemoveCitiesFromStorage GetCitiesFromStorage GetAndDisplayWeatherDataForCity GetSummaryWeatherForCities */
+/*global RemoveCitiesFromStorage GetCitiesFromStorage GetAndDisplayWeatherDataForCity PageSize GetSummaryWeatherForCities */
 
 $(document).ready(function(){
 
     var cityIds = GetCitiesFromStorage();
 
+    PageSize();
+
     GetSummaryWeatherForCities(cityIds, true);
+
+    $(window).resize(PageSize);
 
     $( ".js-add-new-city-dialog" ).dialog({
         autoOpen: false,
@@ -21,8 +25,6 @@ $(document).ready(function(){
     $(".js-manage-favourite-cities-button").unbind("click")
         .bind("click", function() {
             $(".js-add-new-city-dialog" ).dialog("open");
-
-
         });
 
     $(".js-add-new-city-button").unbind("click")
