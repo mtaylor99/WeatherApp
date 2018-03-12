@@ -4,6 +4,11 @@ h1 {
   font-size: 40px;
   color: #0000FF; }
 
+fieldset {
+  color: #0000FF;
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 18px; }
+
 button {
   color: #000000;
   text-align: center;
@@ -13,10 +18,14 @@ button {
   transition-duration: .4s;
   cursor: pointer; }
 
-fieldset {
-  color: #0000FF;
-  font-family: Verdana,Arial,sans-serif;
-  font-size: 18px; }
+.ui-widget-header {
+  background: #339FFF;
+  color: #ffffff; }
+
+.ui-widget-content {
+  background: #ffffff;
+  border: 1px solid #339FFF;
+  color: #0000FF; }
 
 .o-main-content {
   display: flex; }
@@ -89,22 +98,14 @@ fieldset {
   width: 100%;
   height: 200px; }
 
-h1 {
-  font-family: "arial";
-  font-size: 50px;
-  color: #ff0000; }
-
-table {
-  width: 80%;
-  margin: auto; }
-  table th,
-  table td {
-    border: 1px solid #999999;
-    border-color: #ff0000; }
-  table th {
-    text-align: center; }
-  table td {
-    text-align: left; }
+.c-weather-app-banner {
+  background-image: url("../images/weatherbanner.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 130px;
+  height: 130px;
+  padding-left: 10px; }
+  .c-weather-app-banner h1 {
+    color: #ffffff; }
 
 .c-favourite-cities-button {
   width: 32px;
@@ -117,11 +118,11 @@ table {
     background-color: #e0e0e0; }
 
 .c-clear-favourite-cities-button {
-  background: url(../images/icons/delete.svg);
+  background: url("../images/icons/delete.svg");
   background-repeat: no-repeat; }
 
 .c-manage-favourite-cities-button {
-  background: url(../images/icons/add.svg);
+  background: url("../images/icons/add.svg");
   background-repeat: no-repeat; }
 
 .c-city-widget {
@@ -149,20 +150,3 @@ table {
     .c-city-widget button {
       width: 100px;
       height: 200px; } }
-.c-header {
-  background-image: url("../images/weatherbanner.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 130px;
-  height: 130px;
-  padding-left: 10px; }
-  .c-header h1 {
-    color: #ffffff; }
-
-.ui-widget-header {
-  background: #339FFF;
-  color: #ffffff; }
-
-.ui-widget-content {
-  background: #ffffff;
-  border: 1px solid #339FFF;
-  color: #0000FF; }
