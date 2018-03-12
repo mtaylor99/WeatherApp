@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 
+const KELVIN_TO_CELSIUS = 273.15;
+
 var pageSize = "";
 var cities;
 var currentCityName;
@@ -93,6 +95,8 @@ function GetWeatherIcon(weather) {
             return "images/icons/wind.svg";
         case "Dust":
             return "images/icons/dust.svg";
+        case "Snow":
+            return "images/icons/snow.svg";
     }  
 }
 
@@ -134,7 +138,7 @@ function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
 
                     $(".c-city-widget").removeClass("c-city-widget-selected");
 
-                    GetAndDisplayWeatherDataForCity(event.srcElement.parentElement.id);
+                    GetAndDisplayWeatherDataForCity((this).closest("button").id);
 
                     $(this).closest(".c-city-widget")
                         .addClass("c-city-widget-selected");
@@ -156,6 +160,9 @@ function GetAndDisplayWeatherDataForCity(city) {
             DisplayWeatherAppVue();
 
             $(".js-weather-entries-fieldset-legend").text("Weather for your selected city '" + city + "'");
+            $(".js-weather-details-banner-city-name").text(currentCityName);
+            $(".js-weather-details-banner-weather-icon").attr("src",GetWeatherIcon(result.list[1].weather[0].main));
+            $(".js-weather-details-banner-weather-temperature").html((result.list[1].main.temp - KELVIN_TO_CELSIUS).toFixed(2) + " &#8451");
         });
 }
 
