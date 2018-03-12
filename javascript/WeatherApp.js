@@ -130,7 +130,11 @@ function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
             }
 
             if (loadFirstCityWeather === true) {
+                debugger;
+
                 GetAndDisplayWeatherDataForCity($(".js-city-list")[0].id); 
+
+                $(".c-city-widget").first().addClass("c-city-widget-selected");
             }
             
             $(".js-city-list").unbind("click")
