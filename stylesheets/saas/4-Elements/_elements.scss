@@ -1,11 +1,12 @@
 h1 {
     @include font-size(35);
     font-family: $stack-1;  
-    color: $color-blue;
 }
 
 fieldset {
-    color: $color-blue;
+    @include font-size(10);
+    font-family: $stack-1;  
+    color: $color-black;
 }
 
 button {

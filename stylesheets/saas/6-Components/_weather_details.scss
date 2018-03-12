@@ -4,6 +4,8 @@
     height: 100px;
 
     &-city-name {
+        @include font-size(35);
+        font-family: $stack-1;  
         padding: 5px;
         float: left; 
         color: $color-white;
@@ -20,6 +22,8 @@
     }
 
     &-weather-temperature {
+        @include font-size(16);
+        font-family: $stack-1;  
         color: $color-white; 
         position: relative; 
         float: right; 
