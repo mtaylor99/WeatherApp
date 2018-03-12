@@ -144,13 +144,13 @@ function GetAndDisplayWeatherDataForCity(city) {
 }
 
 function  DisplayWeatherAppJquery() {
-    $(".js-weather-entries-table tbody tr").remove();
+    /* $(".js-weather-entries-table tbody tr").remove();
 
     for (var i = 0; i < cityWeatherResults.length; i++) {          
         var newRowContent = "<tr><td>" + currentCityName + "</td><td class=\"u-text-left\">" + cityWeatherResults[i].weather[0].description  + "</td><td>" + cityWeatherResults[i].weather[0].description + "</td></tr>";
 
         $(".js-weather-entries-table tbody").append(newRowContent); 
-    }
+    } */
 }
 
 function DisplayWeatherAppVue() {
