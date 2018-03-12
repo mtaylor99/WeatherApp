@@ -1,84 +1,93 @@
-.g-main-content {
-  display: flex; }
-
-.g-city-widgets {
-  display: flex;
-  flex-wrap: wrap; }
-
-@media only screen and (max-width: 768px) {
-  .g-main-content {
-    flex-direction: column; }
-
-  .g-city-widgets {
-    flex-direction: row;
-    min-height: 240px; } }
-@media only screen and (min-width: 768px) {
-  .g-main-content {
-    flex-direction: row; }
-
-  .g-city-widgets {
-    flex: 1;
-    justify-content: space-around; }
-
-  .g-cities-management {
-    min-width: 260px;
-    max-width: 410px; } }
-.g-weather-details {
-  flex: 3;
-  min-width: 500px; }
-
-.g-weather-details-banner {
-  background: linear-gradient(to right, #000055, #0000FF);
-  width: 100%;
-  height: 100px; }
-  .g-weather-details-banner-city-name {
-    padding: 5px;
-    float: left;
-    font-size: 48px;
-    color: #ffffff; }
-  .g-weather-details-banner-weather-icon, .g-weather-details-banner-weather-temperature {
-    float: right; }
-  .g-weather-details-banner-weather-icon {
-    height: 80px;
-    padding: 10px; }
-  .g-weather-details-banner-weather-temperature {
-    color: white;
-    font-size: 24px;
-    position: relative;
-    float: right;
-    top: 70px; }
-
-.g-weather-details-units {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around; }
-
-.g-weather-details-units-temperature {
-  background-color: green;
-  width: 300px;
-  height: 200px; }
-
-.g-weather-details-units-humidity {
-  background-color: red;
-  width: 300px;
-  height: 200px; }
-
-.g-weather-details-graph {
-  background-color: purple;
-  width: 100%;
-  height: 200px; }
-
 h1 {
   font-family: "Arial", serif;
   font-weight: bold;
   font-size: 40px;
   color: #0000FF; }
 
+button {
+  color: #000000;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition-duration: .4s;
+  /* Safari */
+  transition-duration: .4s;
+  cursor: pointer; }
+
 fieldset {
   color: #0000FF;
   font-family: Verdana,Arial,sans-serif;
   font-size: 18px; }
+
+.o-main-content {
+  display: flex; }
+
+.o-city-widgets {
+  display: flex;
+  flex-wrap: wrap; }
+
+@media only screen and (max-width: 768px) {
+  .o-main-content {
+    flex-direction: column; }
+
+  .o-city-widgets {
+    flex-direction: row;
+    min-height: 240px; } }
+@media only screen and (min-width: 768px) {
+  .o-main-content {
+    flex-direction: row; }
+
+  .o-city-widgets {
+    flex: 1;
+    justify-content: space-around; }
+
+  .o-cities-management {
+    min-width: 260px;
+    max-width: 410px; } }
+.o-weather-details {
+  flex: 3;
+  min-width: 500px; }
+
+.o-weather-details-banner {
+  background: linear-gradient(to right, #000055, #0000FF);
+  width: 100%;
+  height: 100px; }
+  .o-weather-details-banner-city-name {
+    padding: 5px;
+    float: left;
+    font-size: 48px;
+    color: #ffffff; }
+  .o-weather-details-banner-weather-icon, .o-weather-details-banner-weather-temperature {
+    float: right; }
+  .o-weather-details-banner-weather-icon {
+    height: 80px;
+    padding: 10px; }
+  .o-weather-details-banner-weather-temperature {
+    color: white;
+    font-size: 24px;
+    position: relative;
+    float: right;
+    top: 70px; }
+
+.o-weather-details-units {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+
+.o-weather-details-units-temperature {
+  background-color: green;
+  width: 300px;
+  height: 200px; }
+
+.o-weather-details-units-humidity {
+  background-color: red;
+  width: 300px;
+  height: 200px; }
+
+.o-weather-details-graph {
+  background-color: purple;
+  width: 100%;
+  height: 200px; }
 
 h1 {
   font-family: "arial";
@@ -96,15 +105,6 @@ table {
     text-align: center; }
   table td {
     text-align: left; }
-
-button {
-  color: #000000;
-  text-align: center;
-  text-decoration: none;
-  -webkit-transition-duration: .4s;
-  /* Safari */
-  transition-duration: .4s;
-  cursor: pointer; }
 
 .c-favourite-cities-button {
   width: 32px;

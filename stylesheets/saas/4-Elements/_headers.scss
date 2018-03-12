@@ -4,3 +4,12 @@ h1 {
     font-size: 40px;
     color: $color-blue;
 }
+
+button {
+    color: $color-black;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition-duration: .4s; /* Safari */
+    transition-duration: .4s;
+    cursor: pointer;
+}

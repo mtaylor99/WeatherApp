@@ -13,7 +13,7 @@ var citiesSummaryWeather = [];
 //****************************************************************************************************************** */
 
 function PageSize() {
-    var mainContent = $(".g-main-content");
+    var mainContent = $(".o-main-content");
 
     if (mainContent.css("flex-direction") === "row") { //Web
 
