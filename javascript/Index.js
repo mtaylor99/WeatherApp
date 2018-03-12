@@ -1,4 +1,4 @@
-/*global RemoveCitiesFromStorage GetCitiesFromStorage GetAndDisplayWeatherDataForCity PageSize GetSummaryWeatherForCities */
+/*global RemoveCitiesFromStorage GetCitiesFromStorage GetAndDisplayWeatherDataForCity PageSize GetSummaryWeatherForCities ClearWeatherBannerDetails */
 
 $(document).ready(function(){
 
@@ -14,6 +14,9 @@ $(document).ready(function(){
     $(".js-clear-favourite-cities-button").unbind("click")
         .bind("click", function() {
             RemoveCitiesFromStorage();
+
+            ClearWeatherBannerDetails();
+
             $(".c-city-widget").remove();
             $(".js-weather-entries-table tbody tr").remove();
         });

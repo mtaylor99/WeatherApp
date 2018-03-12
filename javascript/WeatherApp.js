@@ -100,6 +100,24 @@ function AddNewCityToList(name, temperature, weather) {
     $(".js-weather-cities-list").append(html.join(""));
 }
 
+function ClearWeatherBannerDetails() {
+    
+    var citySummary = {
+        name: "No city selected", 
+        temperature: 0,
+        weather: "" 
+    };
+
+    SetWeatherBannerDetails(citySummary);
+}
+
+function SetWeatherBannerDetails(citySummary) {
+    $(".js-weather-entries-fieldset-legend").text("Weather for your selected city '" + citySummary.name + "'");
+    $(".js-weather-details-banner-city-name").text(citySummary.name);
+    $(".js-weather-details-banner-weather-icon").attr("src",GetWeatherIcon(citySummary.weather));
+    $(".js-weather-details-banner-weather-temperature").html(citySummary.temperature.toFixed(1) + " &#8451");
+}
+
 function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
     $.getJSON("http://api.openweathermap.org/data/2.5/group?APPID=8bfabc4405e188160d830fc5f133e398&units=metric&id=" + cityIds,
         function(result){  
@@ -118,6 +136,9 @@ function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
             
             $(".js-city-list").unbind("click")
                 .bind("click", function() {
+
+                    debugger;
+
 
                     $(".c-city-widget").removeClass("c-city-widget-selected");
 
@@ -140,10 +161,7 @@ function GetAndDisplayWeatherDataForCity(city) {
             DisplayWeatherAppJquery();
             DisplayWeatherAppVue();
 
-            $(".js-weather-entries-fieldset-legend").text("Weather for your selected city '" + citySummary.name + "'");
-            $(".js-weather-details-banner-city-name").text(citySummary.name);
-            $(".js-weather-details-banner-weather-icon").attr("src",GetWeatherIcon(citySummary.weather));
-            $(".js-weather-details-banner-weather-temperature").html(citySummary.temperature.toFixed(1) + " &#8451");
+            SetWeatherBannerDetails(citySummary);
         });
 }
 
