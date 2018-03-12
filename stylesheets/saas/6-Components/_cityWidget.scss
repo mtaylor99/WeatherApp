@@ -1,16 +1,29 @@
 .c-city-widget {
-    background-color: $color-light-gray;
     margin: 10px;
     text-align: center;
     font-size: 30px;
-}
 
+
+
+    &:hover {
+        background-color: $color-light-gray;
+    } 
+
+    &-selected {
+        border-bottom: 10px solid lightblue;
+    }
+}
 
 @media only screen and (max-width: 768px) {  //Mobile
     .c-city-widget {
         width: 100px;
         min-width: 100px;
-        height: 100px;
+        height: 120px;
+
+        button {
+            width: 100px;
+            height: 120px;
+        }
     }
 }
 
@@ -19,5 +32,10 @@
         width: 100px;
         min-width: 100px;
         height: 200px;
+
+        button {
+            width: 100px;
+            height: 200px;
+        }
     }
 }

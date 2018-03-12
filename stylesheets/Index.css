@@ -28,9 +28,25 @@
   min-width: 500px; }
 
 .g-weather-details-banner {
-  background-color: orange;
+  background: linear-gradient(to right, #000055, #0000FF);
   width: 100%;
-  height: 200px; }
+  height: 100px; }
+  .g-weather-details-banner-city-name {
+    padding: 5px;
+    float: left;
+    font-size: 48px;
+    color: #ffffff; }
+  .g-weather-details-banner-weather-icon, .g-weather-details-banner-weather-temperature {
+    float: right; }
+  .g-weather-details-banner-weather-icon {
+    height: 80px;
+    padding: 10px; }
+  .g-weather-details-banner-weather-temperature {
+    color: white;
+    font-size: 24px;
+    position: relative;
+    float: right;
+    top: 70px; }
 
 .g-weather-details-units {
   display: flex;
@@ -82,7 +98,6 @@ table {
     text-align: left; }
 
 button {
-  background-color: #FFFF00;
   color: #000000;
   text-align: center;
   text-decoration: none;
@@ -90,9 +105,6 @@ button {
   /* Safari */
   transition-duration: .4s;
   cursor: pointer; }
-  button:hover {
-    background-color: #ff0000;
-    color: #000000; }
 
 .c-favourite-cities-button {
   width: 32px;
@@ -105,29 +117,38 @@ button {
     background-color: #e0e0e0; }
 
 .c-clear-favourite-cities-button {
-  background: url(../images/icons/delete/delete32.png);
+  background: url(../images/icons/add.svg);
   background-repeat: no-repeat; }
 
 .c-manage-favourite-cities-button {
-  background: url(../images/icons/add/add32.png);
+  background: url(../images/icons/delete.svg);
   background-repeat: no-repeat; }
 
 .c-city-widget {
-  background-color: #e0e0e0;
   margin: 10px;
   text-align: center;
   font-size: 30px; }
+  .c-city-widget:hover {
+    background-color: #e0e0e0; }
+  .c-city-widget-selected {
+    border-bottom: 10px solid lightblue; }
 
 @media only screen and (max-width: 768px) {
   .c-city-widget {
     width: 100px;
     min-width: 100px;
-    height: 100px; } }
+    height: 120px; }
+    .c-city-widget button {
+      width: 100px;
+      height: 120px; } }
 @media only screen and (min-width: 768px) {
   .c-city-widget {
     width: 100px;
     min-width: 100px;
-    height: 200px; } }
+    height: 200px; }
+    .c-city-widget button {
+      width: 100px;
+      height: 200px; } }
 .c-header {
   background-image: url("../images/weatherbanner.jpg");
   background-repeat: no-repeat;

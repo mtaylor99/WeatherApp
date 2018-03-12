@@ -78,11 +78,21 @@ function AddNewCityToArray(name, temperature, weather) {
 }
 
 function GetWeatherIcon(weather) {
-
-    if (pageSize === "Mobile") {
-        return "images/icons/sunny/sunny16.png";
-    } else if (pageSize === "Web") {
-        return "images/icons/sunny/sunny32.png";
+    switch (weather) {
+        case "Clear":
+            return "images/icons/sunny.svg";
+        case "Drizzle":
+            return "images/icons/shower.svg";
+        case "Rain":
+            return "images/icons/rain.svg";
+        case "Haze":
+            return "images/icons/cloudysunny.svg";
+        case "Clouds":
+            return "images/icons/cloudy.svg";
+        case "Mist":
+            return "images/icons/wind.svg";
+        case "Dust":
+            return "images/icons/dust.svg";
     }  
 }
 
@@ -121,7 +131,13 @@ function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
             
             $(".js-city-list").unbind("click")
                 .bind("click", function() {
+
+                    $(".c-city-widget").removeClass("c-city-widget-selected");
+
                     GetAndDisplayWeatherDataForCity(event.srcElement.parentElement.id);
+
+                    $(this).closest(".c-city-widget")
+                        .addClass("c-city-widget-selected");
                 });
         });
 }

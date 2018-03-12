@@ -1,16 +1,10 @@
 button {
-    background-color: $color-yellow;
     color: $color-black;
     text-align: center;
     text-decoration: none;
     -webkit-transition-duration: .4s; /* Safari */
     transition-duration: .4s;
     cursor: pointer;
-
-    &:hover {
-        background-color: $color-red;
-        color: $color-black;
-    }  
 }
 
 .c-favourite-cities-button {
@@ -27,12 +21,12 @@ button {
 }
 
 .c-clear-favourite-cities-button {
-    background: url(../images/icons/delete/delete32.png);
+    background: url(../images/icons/add.svg);
     background-repeat: no-repeat;
 }
 
 .c-manage-favourite-cities-button {
-    background: url(../images/icons/add/add32.png);
+    background: url(../images/icons/delete.svg);
     background-repeat: no-repeat;
 }
 
