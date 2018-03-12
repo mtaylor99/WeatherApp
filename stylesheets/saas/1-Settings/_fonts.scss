@@ -1,3 +1,37 @@
-$text-heading1: $color-red;
-$text-heading1-font: "arial";
-$text-heading1-size: 50px;
+//---- FONT-STACKS
+//USAGE: From FONTS choose your sans or serif fonts you want to use and put the var into
+//       your STACKS variables (e.g $stack-1) then always add a font type to the end.
+//		 If the project has brand specific fonts then define these in the typography.scss
+//		 file and add the font family name to a custom variable and include in your
+//		 STACK at the start before (sans OR serif)
+
+//NOTE: DO NOT DELETE $stack-1 - it is always needed for the base template
+
+//FONTS
+//Sans Serif fonts
+$sans-1: arial, helvetica;
+$sans-2: "Arial Black", Gadget;
+$sans-3: "Comic Sans MS", cursive;
+$sans-4: Impact, Charcoal;
+$sans-5: "Lucida Sans Unicode", "Lucida Grande";
+$sans-6: Tahoma, Geneva;
+$sans-7: "Trebuchet MS", Helvetica;
+$sans-8: Verdana, Geneva;
+
+//Serif fonts
+$serif-1: Georgia;
+$serif-2: "Palatino Linotype", "Book Antiqua", Palatino;
+$serif-3: "times new roman", times;
+
+//Monospace fonts
+$mono-1: "Courier New", Courier;
+$mono-2: "Lucida Console", Monaco;
+
+//Types
+$type-1: sans-serif;
+$type-2: serif;
+$type-3: monospace;
+
+//STACKS
+//e.g. $stack-1: $custom-1, $sans-1, $type-1;
+$stack-1: $sans-1, $type-1;

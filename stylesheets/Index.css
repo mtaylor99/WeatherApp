@@ -1,13 +1,10 @@
 h1 {
-  font-family: "Arial", serif;
-  font-weight: bold;
-  font-size: 40px;
+  font-size: 3.5rem;
+  font-family: arial, helvetica, sans-serif;
   color: #0000FF; }
 
 fieldset {
-  color: #0000FF;
-  font-family: Verdana,Arial,sans-serif;
-  font-size: 18px; }
+  color: #0000FF; }
 
 button {
   color: #000000;
@@ -91,8 +88,7 @@ button {
 
 .c-city-widget {
   margin: 10px;
-  text-align: center;
-  font-size: 30px; }
+  text-align: center; }
   .c-city-widget:hover {
     background-color: #e0e0e0; }
   .c-city-widget-selected {
@@ -121,7 +117,6 @@ button {
   .c-weather-details-banner-city-name {
     padding: 5px;
     float: left;
-    font-size: 48px;
     color: #ffffff; }
   .c-weather-details-banner-weather-icon, .c-weather-details-banner-weather-temperature {
     float: right; }
@@ -130,7 +125,6 @@ button {
     padding: 10px; }
   .c-weather-details-banner-weather-temperature {
     color: #ffffff;
-    font-size: 24px;
     position: relative;
     float: right;
     top: 70px; }

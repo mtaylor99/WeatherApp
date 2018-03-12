@@ -1,14 +1,11 @@
 h1 {
-    font-family: "Arial", serif;
-    font-weight: bold;
-    font-size: 40px;
+    @include font-size(35);
+    font-family: $stack-1;  
     color: $color-blue;
 }
 
 fieldset {
     color: $color-blue;
-    font-family: Verdana,Arial,sans-serif;
-    font-size: 18px;
 }
 
 button {

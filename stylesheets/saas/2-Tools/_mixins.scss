@@ -16,6 +16,16 @@
     }
 }
 
+@mixin font-size($size, $legacy: 0) {
+    font: {
+        @if $legacy == 1 {
+            size: $size + px;
+        } @else {
+            size: ($size / 10) + rem;
+        }
+    }
+}
+
 @mixin opacity($value) {
     opacity: $value;
     //IE8 Opacity
