@@ -13,45 +13,44 @@
 
 @media only screen and (max-width: 768px) {  //Mobile
     .c-city-widget {
-        width: 80px;
-        min-width: 80px;
-        height: 80px;
+        width: 70px;
+        min-width: 70px;
+        height: 140px;
 
         &-button {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 140px;
             background-color: $color-white;
         }
 
         &-city {
-            @include font-size(12);
+            @include font-size(8);
             font-family: $stack-1; 
             color: $color-dark-blue; 
         }
 
         &-weather-icon {
-            width: 80px;
-            height: 80px;
+
         }
 
         &-temperature-cold,
         &-temperature-medium,
         &-temperature-hot {
-            @include font-size(10);
+            @include font-size(7);
             font-family: $stack-1;  
-
-            &-temperature-cold {
-                color: $color-blue;
-            }
-
-            &-temperature-medium {
-                color: $color-dark-green;
-            }
-
-            &-temperature-hot {
-                color: $color-orange;
-            } 
         }
+
+        &-temperature-cold {
+            color: $color-blue;
+        }
+
+        &-temperature-medium {
+            color: $color-dark-green;
+        }
+
+        &-temperature-hot {
+            color: $color-orange;
+        } 
     }
 }
 
@@ -71,6 +70,10 @@
             @include font-size(12);
             font-family: $stack-1; 
             color: $color-dark-blue; 
+        }
+
+        &-weather-icon {
+            
         }
 
         &-temperature-cold,
