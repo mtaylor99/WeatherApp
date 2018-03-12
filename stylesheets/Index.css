@@ -56,47 +56,11 @@ button {
   flex: 3;
   min-width: 500px; }
 
-.o-weather-details-banner {
-  background: linear-gradient(to right, #000055, #0000FF);
-  width: 100%;
-  height: 100px; }
-  .o-weather-details-banner-city-name {
-    padding: 5px;
-    float: left;
-    font-size: 48px;
-    color: #ffffff; }
-  .o-weather-details-banner-weather-icon, .o-weather-details-banner-weather-temperature {
-    float: right; }
-  .o-weather-details-banner-weather-icon {
-    height: 80px;
-    padding: 10px; }
-  .o-weather-details-banner-weather-temperature {
-    color: white;
-    font-size: 24px;
-    position: relative;
-    float: right;
-    top: 70px; }
-
 .o-weather-details-units {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around; }
-
-.o-weather-details-units-temperature {
-  background-color: green;
-  width: 300px;
-  height: 200px; }
-
-.o-weather-details-units-humidity {
-  background-color: red;
-  width: 300px;
-  height: 200px; }
-
-.o-weather-details-graph {
-  background-color: purple;
-  width: 100%;
-  height: 200px; }
 
 .c-weather-app-banner {
   background-image: url("../images/weatherbanner.jpg");
@@ -132,7 +96,7 @@ button {
   .c-city-widget:hover {
     background-color: #e0e0e0; }
   .c-city-widget-selected {
-    border-bottom: 10px solid lightblue; }
+    border-bottom: 10px solid #339FFF; }
 
 @media only screen and (max-width: 768px) {
   .c-city-widget {
@@ -150,3 +114,38 @@ button {
     .c-city-widget button {
       width: 100px;
       height: 200px; } }
+.c-weather-details-banner {
+  background: linear-gradient(to right, #000055, #0000FF);
+  width: 100%;
+  height: 100px; }
+  .c-weather-details-banner-city-name {
+    padding: 5px;
+    float: left;
+    font-size: 48px;
+    color: #ffffff; }
+  .c-weather-details-banner-weather-icon, .c-weather-details-banner-weather-temperature {
+    float: right; }
+  .c-weather-details-banner-weather-icon {
+    height: 80px;
+    padding: 10px; }
+  .c-weather-details-banner-weather-temperature {
+    color: #ffffff;
+    font-size: 24px;
+    position: relative;
+    float: right;
+    top: 70px; }
+
+.c-weather-details-units-temperature {
+  background-color: #00FF00;
+  width: 300px;
+  height: 200px; }
+
+.c-weather-details-units-humidity {
+  background-color: #ff0000;
+  width: 300px;
+  height: 200px; }
+
+.c-weather-details-graph {
+  background-color: #A020F0;
+  width: 100%;
+  height: 200px; }
