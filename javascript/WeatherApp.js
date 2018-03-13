@@ -1,3 +1,4 @@
+/* global google drawTemperatureChart drawHumidityChart drawWindSpeedChart */
 /* eslint-disable no-unused-vars */
 
 var cities;
@@ -129,7 +130,8 @@ function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
             if (loadFirstCityWeather === true) {
                 GetAndDisplayWeatherDataForCity($(".js-city-list")[0].id); 
 
-                $(".c-city-widget").first().addClass("c-city-widget-selected");
+                $(".c-city-widget").first()
+                    .addClass("c-city-widget-selected");
             }
             
             $(".js-city-list").unbind("click")
@@ -156,6 +158,7 @@ function GetAndDisplayWeatherDataForCity(city) {
 
             google.charts.setOnLoadCallback(drawTemperatureChart(result));
             google.charts.setOnLoadCallback(drawHumidityChart(result));
+            google.charts.setOnLoadCallback(drawWindSpeedChart(result));
 
             DisplayWeatherAppVue();
         });

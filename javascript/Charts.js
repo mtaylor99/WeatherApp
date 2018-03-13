@@ -104,3 +104,44 @@ function drawHumidityChart(apiData) {
     humidityChart.draw(data, options);
 }
 
+function drawWindSpeedChart(apiData) {
+    // Define the chart to be drawn.
+    var currentDay = "";
+    var windSpeedArray = [];
+
+    var header = ["Day Of Week", "Wind Speed"];
+
+    windSpeedArray.push(header);
+
+    for (var i = 0; i < apiData.list.length; i++) {
+        var dayOfWeek = GetDayOfWeek(apiData.list[i].dt);
+        var windSpeed = apiData.list[i].wind.speed;
+        var row = [dayOfWeek, windSpeed];
+
+        if (dayOfWeek !== currentDay) {
+            windSpeedArray.push(row);
+            currentDay = dayOfWeek;
+        } 
+    }
+
+    var data = google.visualization.arrayToDataTable(windSpeedArray);
+        
+    // Set chart options
+    var options = {
+        "title" : "Wind speed for " + apiData.city.name,
+        hAxis: {
+            title: "Day Of Week"
+        },
+        vAxis: {
+            title: "Wind Speed (mph)"
+        },   
+        curveType: "function",
+        pointsVisible: true	  
+    };
+
+    // Instantiate and draw the chart.
+    var windSpeedChart = new google.visualization.LineChart($(".c-weather-details-wind-speed-chart")[0]);
+
+    windSpeedChart.draw(data, options);
+}
+
