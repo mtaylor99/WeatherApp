@@ -9,13 +9,13 @@ function GetDayOfWeek(t) {
     var dt = new Date(t*1000);
 
     var weekday = new Array(7);
-    weekday[0] =  "Sunday";
-    weekday[1] = "Monday";
-    weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday";
-    weekday[4] = "Thursday";
-    weekday[5] = "Friday";
-    weekday[6] = "Saturday";
+    weekday[0] =  "Sun";
+    weekday[1] = "Mon";
+    weekday[2] = "Tue";
+    weekday[3] = "Wed";
+    weekday[4] = "Thu";
+    weekday[5] = "Fri";
+    weekday[6] = "Sat";
     
     var n = weekday[dt.getDay()];
 
@@ -26,20 +26,16 @@ function drawTemperatureChart(apiData) {
     // Define the chart to be drawn.
     var temperatureArray = [];
 
-    var header = ["Date", "Min Temp", "Current", "Max Temp"];
+    var header = ["Day Of Week", "Temperature"];
 
     temperatureArray.push(header);
 
     for (var i = 0; i < apiData.list.length; i++) {
-        if (i % 5 === 0) {
-            var time = GetDayOfWeek(apiData.list[i].dt);
-            var temp = apiData.list[i].main.temp - KELVIN_TO_CELSIUS;
-            var minTemp = apiData.list[i].main.temp_min - KELVIN_TO_CELSIUS;
-            var maxTemp = apiData.list[i].main.temp_max - KELVIN_TO_CELSIUS;
-            var row = [time, minTemp, temp, maxTemp];
+        var dayOfWeek = GetDayOfWeek(apiData.list[i].dt);
+        var temperature = (apiData.list[i].main.temp - KELVIN_TO_CELSIUS);
+        var row = [dayOfWeek, temperature];
 
-            temperatureArray.push(row);
-        }
+        temperatureArray.push(row);
     }
 
     var data = google.visualization.arrayToDataTable(temperatureArray);
@@ -48,10 +44,10 @@ function drawTemperatureChart(apiData) {
     var options = {
         "title" : "Temperature for " + apiData.city.name,
         hAxis: {
-            title: "Month"
+            title: "Day Of Week"
         },
         vAxis: {
-            title: "Temperature"
+            title: "Temperature (C)"
         },   
         curveType: "function",
         pointsVisible: true	  
@@ -67,18 +63,16 @@ function drawHumidityChart(apiData) {
     // Define the chart to be drawn.
     var humidityArray = [];
 
-    var header = ["Date", "Humidity"];
+    var header = ["Day Of Week", "Humidity"];
 
     humidityArray.push(header);
 
     for (var i = 0; i < apiData.list.length; i++) {
-        if (i % 5 === 0) {
-            var time = GetDayOfWeek(apiData.list[i].dt);
-            var humidity = apiData.list[i].main.humidity;
-            var row = [time, humidity];
+        var dayOfWeek = GetDayOfWeek(apiData.list[i].dt);
+        var humidity = apiData.list[i].main.humidity;
+        var row = [dayOfWeek, humidity];
 
-            humidityArray.push(row);
-        }
+        humidityArray.push(row);
     }
 
     var data = google.visualization.arrayToDataTable(humidityArray);
@@ -87,10 +81,10 @@ function drawHumidityChart(apiData) {
     var options = {
         "title" : "Humidity for " + apiData.city.name,
         hAxis: {
-            title: "Month"
+            title: "Day Of Week"
         },
         vAxis: {
-            title: "Humidity"
+            title: "Humidity (%)"
         },   
         curveType: "function",
         pointsVisible: true	  

@@ -45,7 +45,7 @@ function AddNewCityToArray(name, temperature, weather) {
 function GetSummaryForCity(city) {
     for (var i = 0; i < citiesSummaryWeather.length; i++) {
         if (citiesSummaryWeather[i].name === city)
-        return citiesSummaryWeather[i];
+            return citiesSummaryWeather[i];
     }
 }
 
