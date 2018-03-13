@@ -24,6 +24,7 @@ function GetDayOfWeek(t) {
 
 function drawTemperatureChart(apiData) {
     // Define the chart to be drawn.
+    var currentDay = "";
     var temperatureArray = [];
 
     var header = ["Day Of Week", "Temperature"];
@@ -35,7 +36,10 @@ function drawTemperatureChart(apiData) {
         var temperature = (apiData.list[i].main.temp - KELVIN_TO_CELSIUS);
         var row = [dayOfWeek, temperature];
 
-        temperatureArray.push(row);
+        if (dayOfWeek !== currentDay) {
+            temperatureArray.push(row);
+            currentDay = dayOfWeek;
+        } 
     }
 
     var data = google.visualization.arrayToDataTable(temperatureArray);
@@ -61,6 +65,7 @@ function drawTemperatureChart(apiData) {
 
 function drawHumidityChart(apiData) {
     // Define the chart to be drawn.
+    var currentDay = "";
     var humidityArray = [];
 
     var header = ["Day Of Week", "Humidity"];
@@ -72,7 +77,10 @@ function drawHumidityChart(apiData) {
         var humidity = apiData.list[i].main.humidity;
         var row = [dayOfWeek, humidity];
 
-        humidityArray.push(row);
+        if (dayOfWeek !== currentDay) {
+            humidityArray.push(row);
+            currentDay = dayOfWeek;
+        } 
     }
 
     var data = google.visualization.arrayToDataTable(humidityArray);
