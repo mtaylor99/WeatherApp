@@ -1,8 +1,9 @@
-/* global google */
+/* eslint-disable no-unused-vars */
+/* global google drawTemperatureChart drawHumidityChart */
 
 google.charts.load("current", {packages: ["corechart","line"]});  
 
-function drawTemperatureChart() {
+function drawTemperatureChart(apiData) {
     // Define the chart to be drawn.
     var data = new google.visualization.DataTable();
 
@@ -28,7 +29,7 @@ function drawTemperatureChart() {
         
     // Set chart options
     var options = {
-        "title" : "", //Temperature
+        "title" : "Temperature for " + apiData.city.name,
         hAxis: {
             title: "Month"
         },
@@ -44,7 +45,7 @@ function drawTemperatureChart() {
     temperatureChart.draw(data, options);
 }
 
-function drawHumidityChart() {
+function drawHumidityChart(apiData) {
     // Define the chart to be drawn.
     var data = new google.visualization.DataTable();
 
@@ -70,7 +71,7 @@ function drawHumidityChart() {
         
     // Set chart options
     var options = {
-        "title" : "", //Humidity
+        "title" : "Humidity for " + apiData.city.name,
         hAxis: {
             title: "Month"
         },
@@ -86,5 +87,3 @@ function drawHumidityChart() {
     humidityChart.draw(data, options);
 }
 
-google.charts.setOnLoadCallback(drawTemperatureChart);
-google.charts.setOnLoadCallback(drawHumidityChart);
