@@ -1,6 +1,6 @@
 <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
+    <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -50,19 +50,14 @@
                     </div>
 
                     <div class="o-weather-details-units">
-                        <div class="c-weather-details-units-temperature">
-                            Temperature
+                        <div class="c-weather-details-temperature">
+                            <div class="c-weather-details-temperature-chart"></div>
                         </div>
-                        <div class="c-weather-details-units-humidity">
-                            Humidity
+                        <div class="c-weather-details-humidity">
+                            <div class="c-weather-details-humidity-chart"></div>
                         </div>
-                    </div>
-
-                    <div class="c-weather-details-graph" >
-                        Graph - Google Chart
                     </div>
                 </div>
-
 
             </fieldset>
         </div>  
@@ -94,4 +89,6 @@
 
         </fieldset>
     </div>
+
+    <script src="javascript/Charts.js"></script>
 </body>
