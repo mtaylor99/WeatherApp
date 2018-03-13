@@ -1,7 +1,7 @@
 /* global google drawTemperatureChart drawHumidityChart drawWindSpeedChart */
 /* eslint-disable no-unused-vars */
 
-var cities;
+var cities = [];
 var currentCityName;
 var cityWeatherResults;
 var citiesSummaryWeather = [];
@@ -11,26 +11,26 @@ function RemoveCitiesFromStorage() {
 }
 
 function GetCitiesFromStorage() {
-    cities = localStorage.getItem("Cities");
+    var cityStorage = localStorage.getItem("Cities");
 
-    if (cities === null) {
-        cities = "2643743,4219762,5128638,6167865,2950158,292223";
+    if (cityStorage !== null) {
+        cities = localStorage.getItem("Cities").split(",");
+    } else { 
+        cities = [2643743, 4219762, 5128638, 6167865, 2950158, 292223];
         SaveCitiesToStorage(cities);
     }
 
     return cities;
 }
 
-function SaveCitiesToStorage(cities) {
-    var currentSavedCities = localStorage.getItem("Cities");
-
-    if (currentSavedCities !== null) {
-        currentSavedCities += ";" + cities;
-    } else {
-        currentSavedCities = cities;
+function SaveCitiesToStorage(newCities) {
+    for (var i = 0 ; i < newCities.length; i++) {
+        if (cities.indexOf(newCities[i]) === -1) {
+            cities.push(newCities[i]);
+        }
     }
 
-    window.localStorage.setItem("Cities", currentSavedCities);
+    window.localStorage.setItem("Cities", cities);
 }
 
 function AddNewCityToArray(name, temperature, weather) {

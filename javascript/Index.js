@@ -1,4 +1,4 @@
-/*global RemoveCitiesFromStorage GetCitiesFromStorage GetAndDisplayWeatherDataForCity PageSize GetSummaryWeatherForCities ClearWeatherBannerDetails */
+/*global RemoveCitiesFromStorage GetCitiesFromStorage GetAndDisplayWeatherDataForCity SaveCitiesToStorage GetSummaryWeatherForCities ClearWeatherBannerDetails */
 
 $(document).ready(function(){
 
@@ -26,6 +26,11 @@ $(document).ready(function(){
             if (parseInt(newCityId) !== 0) {
                 GetSummaryWeatherForCities(newCityId, false);
                 GetAndDisplayWeatherDataForCity(newCity); 
+
+                var city = [];
+
+                city.push(newCityId);
+                SaveCitiesToStorage(city);
 
                 $(".js-new-cities-select-list").prop("selectedIndex", 0);
             } else {
