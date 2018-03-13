@@ -1,10 +1,21 @@
 /* global google drawTemperatureChart drawHumidityChart drawWindSpeedChart */
 /* eslint-disable no-unused-vars */
 
+var bannerHeight = null;
 var cities = [];
 var currentCityName;
 var cityWeatherResults;
 var citiesSummaryWeather = [];
+ 
+function CheckPageSize() {
+    //We need to monitor media query changes, to re-draw the Google Charts.
+
+    if (bannerHeight === null) {
+        bannerHeight = $(".c-weather-app-banner").height();
+    } else if (bannerHeight !== $(".c-weather-app-banner").height()) {
+        GetAndDisplayWeatherDataForCity(currentCityName);
+    }
+}
 
 function RemoveCitiesFromStorage() {    
     window.localStorage.removeItem("Cities");
