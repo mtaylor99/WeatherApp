@@ -1,10 +1,11 @@
 <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="javascript/Charts.js"></script>
     <script src="javascript/Index.js"></script>
-    <script src="javascript/WeatherApp.js"></script>
+    <script src="javascript/Weather.js"></script>
 
     <link rel="stylesheet" href="stylesheets/Index.css">
 </head>
@@ -18,22 +19,27 @@
                 <fieldset>
                     <legend>Manage your favourite cities</legend>
                     <div>
-                        <select class="js-new-cities-select-list c-new-cities-select-list">
-                            <option value="0"></option>
-                            <option value="5815135">Washington</option>
-                            <option value="3675707">Madrid</option>
-                            <option value="4548393">Prague</option>
-                            <option value="4825976">Vienna</option>
-                            <option value="1850147">Tokyo</option>
-                            <option value="1816670">Beijing</option>
-                            <option value="4257043">Edinburgh</option>
-                            <option value="4687151">Dublin</option>
-                            <option value="2172349">Cardiff</option>
-                        </select>
+                        <div class="c-favourite-cities-select">
+                            <select class="js-new-cities-select-list c-new-cities-select-list">
+                                <option value="0"></option>
+                                <option value="5815135">Washington</option>
+                                <option value="3675707">Madrid</option>
+                                <option value="4548393">Prague</option>
+                                <option value="4825976">Vienna</option>
+                                <option value="1850147">Tokyo</option>
+                                <option value="1816670">Beijing</option>
+                                <option value="4257043">Edinburgh</option>
+                                <option value="4687151">Dublin</option>
+                                <option value="2172349">Cardiff</option>
+                            </select>
+                        </div>
 
                         <button class="js-add-favourite-cities-button c-favourite-cities-button c-manage-favourite-cities-button" alt="Manage your favourite cities list" tabindex="2"></button>
 
                         <button class="js-clear-favourite-cities-button c-favourite-cities-button c-clear-favourite-cities-button" tabindex="0"></button>
+                    </div>
+                    <div>
+                        <label class="js-add-favourite-cities-validation c-add-favourite-cities-validation u-hidden">Please select a city</label>
                     </div>
                 </fieldset>
             </div>

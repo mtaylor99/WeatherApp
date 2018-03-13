@@ -1,7 +1,15 @@
 .c-new-cities-select-list {
+    float: left; 
+    position: relative; 
+    top: 6px; 
+    margin-right: 10px;
     width: 260px;
 }
 
 .c-new-cities-button {
     width: 80px;
+}
+
+.c-add-favourite-cities-validation {
+    color: $color-red;
 }

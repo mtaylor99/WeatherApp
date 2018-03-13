@@ -18,6 +18,7 @@ $(document).ready(function(){
 
     $(".js-add-favourite-cities-button").unbind("click")
         .bind("click", function() {
+            $(".js-add-favourite-cities-validation").addClass("u-hidden");
 
             var newCity = $(".js-new-cities-select-list option:selected").text();
             var newCityId = $(".js-new-cities-select-list").val();
@@ -26,9 +27,9 @@ $(document).ready(function(){
                 GetSummaryWeatherForCities(newCityId, false);
                 GetAndDisplayWeatherDataForCity(newCity); 
 
-                $(".js-new-cities-select-list select").val(0);
+                $(".js-new-cities-select-list").prop("selectedIndex", 0);
             } else {
-                alert("Please select a city");
+                $(".js-add-favourite-cities-validation").removeClass("u-hidden");
             }
         }); 
 });

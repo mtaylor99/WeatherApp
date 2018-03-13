@@ -183,10 +183,20 @@ button {
   height: 300px; }
 
 .c-new-cities-select-list {
+  float: left;
+  position: relative;
+  top: 6px;
+  margin-right: 10px;
   width: 260px; }
 
 .c-new-cities-button {
   width: 80px; }
 
+.c-add-favourite-cities-validation {
+  color: #ff0000; }
+
 .u-margin-top-10 {
   margin-top: 10px; }
+
+.u-hidden {
+  visibility: hidden; }
