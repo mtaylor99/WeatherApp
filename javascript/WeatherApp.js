@@ -15,7 +15,7 @@ function GetCitiesFromStorage() {
     cities = localStorage.getItem("Cities");
 
     if (cities === null) {
-        cities = "2643743,4219762,5128638,6167865,3614789,292223";
+        cities = "2643743,4219762,5128638,6167865,2950158,292223";
         SaveCitiesToStorage(cities);
     }
 
@@ -136,10 +136,6 @@ function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
             
             $(".js-city-list").unbind("click")
                 .bind("click", function() {
-
-                    debugger;
-
-
                     $(".c-city-widget").removeClass("c-city-widget-selected");
 
                     GetAndDisplayWeatherDataForCity((this).closest("button").id);
