@@ -69,8 +69,8 @@ button {
     color: #ffffff; }
 
 .c-favourite-cities-button {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   border: none;
   padding: 0;
   margin-right: 5px;
@@ -198,7 +198,7 @@ button {
 .c-new-cities-select-list {
   float: left;
   position: relative;
-  top: 6px;
+  top: 4px;
   margin-right: 10px;
   width: 150px; }
 
@@ -206,6 +206,7 @@ button {
   width: 80px; }
 
 .c-add-favourite-cities-validation {
+  font-size: 1rem;
   color: #ff0000; }
 
 .u-margin-top-10 {

@@ -1,7 +1,7 @@
 .c-new-cities-select-list {
     float: left; 
     position: relative; 
-    top: 6px; 
+    top: 4px; 
     margin-right: 10px;
     width: 150px;
 }
@@ -11,5 +11,6 @@
 }
 
 .c-add-favourite-cities-validation {
+    @include font-size(10);
     color: $color-red;
 }
