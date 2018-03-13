@@ -140,7 +140,7 @@ button {
     .c-city-widget-temperature-hot {
       color: #EE7600; } }
 .c-weather-details-banner {
-  background: linear-gradient(to right, #000055, #0000FF);
+  background: linear-gradient(to right, #0000FF, #339FFF);
   width: 100%;
   height: 100px;
   margin-bottom: 10px; }
