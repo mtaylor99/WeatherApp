@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars */
 
-const KELVIN_TO_CELSIUS = 273.15;
-
 var cities;
 var currentCityName;
 var cityWeatherResults;

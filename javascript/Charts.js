@@ -1,31 +1,48 @@
 /* eslint-disable no-unused-vars */
 /* global google drawTemperatureChart drawHumidityChart */
 
+const KELVIN_TO_CELSIUS = 273.15;
+
 google.charts.load("current", {packages: ["corechart","line"]});  
+
+function GetDayOfWeek(t) {
+    var dt = new Date(t*1000);
+
+    var weekday = new Array(7);
+    weekday[0] =  "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+    
+    var n = weekday[dt.getDay()];
+
+    return n;
+}
 
 function drawTemperatureChart(apiData) {
     // Define the chart to be drawn.
-    var data = new google.visualization.DataTable();
+    var temperatureArray = [];
 
-    data.addColumn("string", "Month");
-    data.addColumn("number", "Tokyo");
-    data.addColumn("number", "Osaka");
-    data.addColumn("number", "Berlin");
-    data.addColumn("number", "London");
-    data.addRows([
-        ["Jan",  7.0, -0.2, -0.9, 3.9],
-        ["Feb",  6.9, 0.8, 0.6, 4.2],
-        ["Mar",  9.5,  5.7, 3.5, 5.7],
-        ["Apr",  14.5, 11.3, 8.4, 8.5],
-        ["May",  18.2, 17.0, 13.5, 11.9],
-        ["Jun",  21.5, 22.0, 17.0, 15.2],      
-        ["Jul",  25.2, 24.8, 18.6, 17.0],
-        ["Aug",  26.5, 24.1, 17.9, 16.6],
-        ["Sep",  23.3, 20.1, 14.3, 14.2],
-        ["Oct",  18.3, 14.1, 9.0, 10.3],
-        ["Nov",  13.9,  8.6, 3.9, 6.6],
-        ["Dec",  9.6,  2.5,  1.0, 4.8]
-    ]);
+    var header = ["Date", "Min Temp", "Current", "Max Temp"];
+
+    temperatureArray.push(header);
+
+    for (var i = 0; i < apiData.list.length; i++) {
+        if (i % 5 === 0) {
+            var time = GetDayOfWeek(apiData.list[i].dt);
+            var temp = apiData.list[i].main.temp - KELVIN_TO_CELSIUS;
+            var minTemp = apiData.list[i].main.temp_min - KELVIN_TO_CELSIUS;
+            var maxTemp = apiData.list[i].main.temp_max - KELVIN_TO_CELSIUS;
+            var row = [time, minTemp, temp, maxTemp];
+
+            temperatureArray.push(row);
+        }
+    }
+
+    var data = google.visualization.arrayToDataTable(temperatureArray);
         
     // Set chart options
     var options = {
@@ -36,6 +53,7 @@ function drawTemperatureChart(apiData) {
         vAxis: {
             title: "Temperature"
         },   
+        curveType: "function",
         pointsVisible: true	  
     };
 
@@ -47,27 +65,23 @@ function drawTemperatureChart(apiData) {
 
 function drawHumidityChart(apiData) {
     // Define the chart to be drawn.
-    var data = new google.visualization.DataTable();
+    var humidityArray = [];
 
-    data.addColumn("string", "Month");
-    data.addColumn("number", "Tokyo");
-    data.addColumn("number", "Osaka");
-    data.addColumn("number", "Berlin");
-    data.addColumn("number", "London");
-    data.addRows([
-        ["Jan",  7.0, -0.2, -0.9, 3.9],
-        ["Feb",  6.9, 0.8, 0.6, 4.2],
-        ["Mar",  9.5,  5.7, 3.5, 5.7],
-        ["Apr",  14.5, 11.3, 8.4, 8.5],
-        ["May",  18.2, 17.0, 13.5, 11.9],
-        ["Jun",  21.5, 22.0, 17.0, 15.2],      
-        ["Jul",  25.2, 24.8, 18.6, 17.0],
-        ["Aug",  26.5, 24.1, 17.9, 16.6],
-        ["Sep",  23.3, 20.1, 14.3, 14.2],
-        ["Oct",  18.3, 14.1, 9.0, 10.3],
-        ["Nov",  13.9,  8.6, 3.9, 6.6],
-        ["Dec",  9.6,  2.5,  1.0, 4.8]
-    ]);
+    var header = ["Date", "Humidity"];
+
+    humidityArray.push(header);
+
+    for (var i = 0; i < apiData.list.length; i++) {
+        if (i % 5 === 0) {
+            var time = GetDayOfWeek(apiData.list[i].dt);
+            var humidity = apiData.list[i].main.humidity;
+            var row = [time, humidity];
+
+            humidityArray.push(row);
+        }
+    }
+
+    var data = google.visualization.arrayToDataTable(humidityArray);
         
     // Set chart options
     var options = {
@@ -78,6 +92,7 @@ function drawHumidityChart(apiData) {
         vAxis: {
             title: "Humidity"
         },   
+        curveType: "function",
         pointsVisible: true	  
     };
 
