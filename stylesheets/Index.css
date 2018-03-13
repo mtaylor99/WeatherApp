@@ -170,24 +170,36 @@ button {
   color: #ffffff;
   padding: 2px 2px 2px 2px; }
 
-.c-weather-details-temperature-chart {
-  width: 600px;
-  height: 300px; }
+@media only screen and (max-width: 768px) {
+  .c-weather-details-temperature-chart {
+    width: 400px;
+    height: 200px; }
 
-.c-weather-details-humidity-chart {
-  width: 600px;
-  height: 300px; }
+  .c-weather-details-humidity-chart {
+    width: 400px;
+    height: 200px; }
 
-.c-weather-details-wind-speed-chart {
-  width: 600px;
-  height: 300px; }
+  .c-weather-details-wind-speed-chart {
+    width: 400px;
+    height: 200px; } }
+@media only screen and (min-width: 768px) {
+  .c-weather-details-temperature-chart {
+    width: 600px;
+    height: 300px; }
 
+  .c-weather-details-humidity-chart {
+    width: 600px;
+    height: 300px; }
+
+  .c-weather-details-wind-speed-chart {
+    width: 600px;
+    height: 300px; } }
 .c-new-cities-select-list {
   float: left;
   position: relative;
   top: 6px;
   margin-right: 10px;
-  width: 260px; }
+  width: 150px; }
 
 .c-new-cities-button {
   width: 80px; }
