@@ -36,13 +36,15 @@
 
 .o-weather-details {
     flex: 3;
-    min-width: 500px;
+
 
     @media only screen and (max-width: 768px) {  //Mobile
+        min-width: 500px;
         margin-top: 20px;
     }
 
     @media only screen and (min-width: 768px) { //Web
+        min-width: 630px;
         margin-left: 20px;
     }  
 }

@@ -42,13 +42,14 @@ button {
     min-width: 260px;
     max-width: 410px; } }
 .o-weather-details {
-  flex: 3;
-  min-width: 500px; }
+  flex: 3; }
   @media only screen and (max-width: 768px) {
     .o-weather-details {
+      min-width: 500px;
       margin-top: 20px; } }
   @media only screen and (min-width: 768px) {
     .o-weather-details {
+      min-width: 630px;
       margin-left: 20px; } }
 
 .o-weather-details-units {
