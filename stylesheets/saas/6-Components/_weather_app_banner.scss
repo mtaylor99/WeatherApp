@@ -6,6 +6,15 @@
     padding-left: 10px;
     margin-bottom: 10px;
 
+    @media only screen and (max-width: 768px) {  //Mobile
+        height: 129px;
+    }
+    
+    @media only screen and (min-width: 768px) { //Web
+        height: 130px;
+    }
+    
+
     h1 {     
         color: $color-white;
     }

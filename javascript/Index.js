@@ -1,6 +1,19 @@
 /*global RemoveCitiesFromStorage GetCitiesFromStorage GetAndDisplayWeatherDataForCity SaveCitiesToStorage GetSummaryWeatherForCities ClearWeatherBannerDetails */
+var bannerHeight = null;
+
+function CheckPageSize() {
+
+
+    if (bannerHeight === null) {
+        bannerHeight = $(".c-weather-app-banner").height();
+    } else if (bannerHeight !== $(".c-weather-app-banner").height()) {
+        GetAndDisplayWeatherDataForCity("London");
+    }
+}
 
 $(document).ready(function(){
+    CheckPageSize();
+    $(window).resize(CheckPageSize);
 
     var cityIds = GetCitiesFromStorage();
 

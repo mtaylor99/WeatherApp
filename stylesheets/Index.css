@@ -65,6 +65,12 @@ button {
   height: 130px;
   padding-left: 10px;
   margin-bottom: 10px; }
+  @media only screen and (max-width: 768px) {
+    .c-weather-app-banner {
+      height: 129px; } }
+  @media only screen and (min-width: 768px) {
+    .c-weather-app-banner {
+      height: 130px; } }
   .c-weather-app-banner h1 {
     color: #ffffff; }
 
