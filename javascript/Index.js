@@ -6,11 +6,6 @@ $(document).ready(function(){
 
     GetSummaryWeatherForCities(cityIds, true);
 
-    $( ".js-add-new-city-dialog" ).dialog({
-        autoOpen: false,
-        dialogClass: "c-add-new-city-dialog"
-    });
-
     $(".js-clear-favourite-cities-button").unbind("click")
         .bind("click", function() {
             RemoveCitiesFromStorage();
@@ -21,29 +16,19 @@ $(document).ready(function(){
             $(".js-weather-entries-table tbody tr").remove();
         });
 
-    $(".js-manage-favourite-cities-button").unbind("click")
+    $(".js-add-favourite-cities-button").unbind("click")
         .bind("click", function() {
-            $(".js-add-new-city-dialog").dialog({ 
-                width: 500, 
-                height: 150
-            });
-            $(".js-add-new-city-dialog" ).dialog("open");
-        });
 
-    $(".js-add-new-city-button").unbind("click")
-        .bind("click", function() {
             var newCity = $(".js-new-cities-select-list option:selected").text();
             var newCityId = $(".js-new-cities-select-list").val();
 
-            GetSummaryWeatherForCities(newCityId, false);
+            if (parseInt(newCityId) !== 0) {
+                GetSummaryWeatherForCities(newCityId, false);
+                GetAndDisplayWeatherDataForCity(newCity); 
 
-            $(".js-add-new-city-dialog" ).dialog("close");
-
-            GetAndDisplayWeatherDataForCity(newCity); 
-        });  
-
-    $(".js-cancel-add-new-city-button").unbind("click")
-        .bind("click", function() {
-            $(".js-add-new-city-dialog" ).dialog("close");
-        });    
+                $(".js-new-cities-select-list select").val(0);
+            } else {
+                alert("Please select a city");
+            }
+        }); 
 });

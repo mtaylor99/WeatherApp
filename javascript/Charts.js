@@ -46,7 +46,7 @@ function drawTemperatureChart(apiData) {
         
     // Set chart options
     var options = {
-        "title" : "Temperature for " + apiData.city.name,
+        //"title" : "Temperature for " + apiData.city.name,
         hAxis: {
             title: "Day Of Week"
         },
@@ -87,7 +87,7 @@ function drawHumidityChart(apiData) {
         
     // Set chart options
     var options = {
-        "title" : "Humidity for " + apiData.city.name,
+        //"title" : "Humidity for " + apiData.city.name,
         hAxis: {
             title: "Day Of Week"
         },
@@ -128,7 +128,7 @@ function drawWindSpeedChart(apiData) {
         
     // Set chart options
     var options = {
-        "title" : "Wind speed for " + apiData.city.name,
+        //"title" : "Wind speed for " + apiData.city.name,
         hAxis: {
             title: "Day Of Week"
         },
