@@ -9,6 +9,10 @@
     &-selected {
         border-bottom: 10px solid $color-dark-blue;
     }
+
+    &-city {
+        overflow: hidden;
+    }
 }
 
 @media only screen and (max-width: 768px) {  //Mobile

@@ -6,7 +6,7 @@ describe("Weather App - Storage Management", function() {
     });
 
     it("Initial storage is correct", function() {
-        var expectedCities = "2643743,4219762,5128638,6167865,3614789,292223";
+        var expectedCities = "2643743,4219762,5128638,6167865,2950158,292223";
         var returnedCities = GetCitiesFromStorage();
 
         expect(expectedCities === returnedCities).toBe(true);
@@ -14,7 +14,7 @@ describe("Weather App - Storage Management", function() {
 
     
     it("Initial storage is not correct", function() {
-        var expectedCities = "2643743,4219762,5128638,6167865,3614789,292223abc";
+        var expectedCities = "2643743,4219762,5128638,6167865,2950158,292223abc";
         var returnedCities = GetCitiesFromStorage();
 
         expect(expectedCities === returnedCities).toBe(false);

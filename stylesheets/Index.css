@@ -101,6 +101,8 @@ button {
     background-color: #e0e0e0; }
   .c-city-widget-selected {
     border-bottom: 10px solid #000055; }
+  .c-city-widget-city {
+    overflow: hidden; }
 
 @media only screen and (max-width: 768px) {
   .c-city-widget {
@@ -192,5 +194,3 @@ button {
 
 .u-margin-top-10 {
   margin-top: 10px; }
-
-/*# sourceMappingURL=Index.css.map */
