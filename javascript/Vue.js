@@ -5,12 +5,13 @@ Vue.component("city-widget", {
     props: ["city"],
     methods: {
         onCityWidgetClick: function() { 
-            $(".c-city-widget").removeClass("c-city-widget-selected");
+            for (var i = 0; i < favouriteCities.length; i++) {
+                favouriteCities[i].selected = false;
+            }
+
+            this.city.selected = true;
 
             GetAndDisplayWeatherDataForCity(this.city.name);
-
-            $(this).closest(".c-city-widget")
-                .addClass("c-city-widget-selected");
         }
     },
     template: "<div class=\"c-city-widget\">" +

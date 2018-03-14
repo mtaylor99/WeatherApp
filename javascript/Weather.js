@@ -51,7 +51,8 @@ function AddNewCityToArray(city) {
         icon: GetWeatherIcon(city.weather),
         temperature: city.temperature,
         temprange: "c-city-widget-temperature-" + GetTemperatureRange(city.temperature),
-        tabindex: $(".js-city-list").length + 3
+        tabindex: $(".js-city-list").length + 3,
+        selected: false
     };
 
     favouriteCities.push(favouriteCity);
@@ -123,17 +124,18 @@ function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
                     id: result.list[i].id, 
                     name: result.list[i].name, 
                     temperature: result.list[i].main.temp, 
-                    weather: result.list[i].weather[0].main
+                    weather: result.list[i].weather[0].main,
+                    selected: false
                 };
 
                 AddNewCityToArray(city);
             }
 
-            if (loadFirstCityWeather === true) {
-                GetAndDisplayWeatherDataForCity(favouriteCities[0].name); 
+            debugger;
 
-                //$(".c-city-widget").first()
-               //     .addClass("c-city-widget-selected");
+            if (loadFirstCityWeather === true) {
+                favouriteCities[0].selected = true;
+                GetAndDisplayWeatherDataForCity(favouriteCities[0].name); 
             }
         });
 }
