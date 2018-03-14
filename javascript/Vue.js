@@ -41,8 +41,13 @@ var cities = [
 
 Vue.component("city-widget", {
     props: ["city"],
+    methods: {
+        onCityWidgetClick: function() { 
+            alert("City Widget Click");
+        }
+    },
     template: "<div class=\"c-city-widget\">" +
-              "    <button id=\"{{ city.name }}\" class=\"js-city-list c-city-widget-button\" alt=\"{{ city.name }}\" tabindex=\"3\">" +
+              "    <button id=\"{{ city.name }}\" class=\"js-city-list c-city-widget-button\" alt=\"{{ city.name }}\" tabindex=\"3\" v-on:click=\"onCityWidgetClick\">" +
               "        <div class=\"c-city-widget-city\">" +
               "            <label>{{ city.name }}</label>" +
               "        </div>" +
