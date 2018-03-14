@@ -173,22 +173,5 @@ function GetAndDisplayWeatherDataForCity(city) {
             google.charts.setOnLoadCallback(drawTemperatureChart(result));
             google.charts.setOnLoadCallback(drawHumidityChart(result));
             google.charts.setOnLoadCallback(drawWindSpeedChart(result));
-
-            DisplayWeatherAppVue();
         });
-}
-
-function DisplayWeatherAppVue() {
-    var app = new Vue({
-        el: ".js-vue-app",
-        data: {
-            todos: [
-                { text: "Learn JavaScript" },
-                { text: "Learn Vue" },
-                { text: "Build something awesome" }
-            ],
-            weatherResults: cityWeatherResults,
-            message: "Hello Vue!"
-        }
-    });
 }
