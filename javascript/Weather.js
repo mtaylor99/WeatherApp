@@ -2,9 +2,8 @@
 /* eslint-disable no-unused-vars */
 
 var bannerHeight = null;
-var cities = [];
+var storedCities = [];
 var currentCityName;
-var cityWeatherResults;
 var favouriteCities = [];
  
 function CheckPageSize() {
@@ -25,23 +24,23 @@ function GetCitiesFromStorage() {
     var cityStorage = localStorage.getItem("Cities");
 
     if (cityStorage !== null) {
-        cities = localStorage.getItem("Cities").split(",");
+        storedCities = localStorage.getItem("Cities").split(",");
     } else { 
-        cities = [2643743, 4219762, 5128638, 6167865, 2950158, 292223];
-        SaveCitiesToStorage(cities);
+        storedCities = [2643743, 4219762, 5128638, 6167865, 2950158, 292223];
+        SaveCitiesToStorage(storedCities);
     }
 
-    return cities;
+    return storedCities;
 }
 
 function SaveCitiesToStorage(newCities) {
     for (var i = 0 ; i < newCities.length; i++) {
-        if (cities.indexOf(newCities[i]) === -1) {
-            cities.push(newCities[i]);
+        if (storedCities.indexOf(newCities[i]) === -1) {
+            storedCities.push(newCities[i]);
         }
     }
 
-    window.localStorage.setItem("Cities", cities);
+    window.localStorage.setItem("Cities", storedCities);
 }
 
 function AddNewCityToArray(city) {
@@ -144,6 +143,8 @@ function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
             if (loadFirstCityWeather === true) {
                 favouriteCities[0].selected = true;
                 GetAndDisplayWeatherDataForCity(favouriteCities[0].name); 
+            } else {
+                SelectCity(currentCityName);
             }
         });
 }
@@ -154,7 +155,6 @@ function GetAndDisplayWeatherDataForCity(city) {
             var citySummary = GetSummaryForCity(city);
 
             currentCityName = result.city.name;
-            cityWeatherResults = result.list;
 
             SetWeatherBannerDetails(citySummary);
 
