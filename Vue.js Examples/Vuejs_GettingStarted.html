@@ -1,0 +1,111 @@
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+        .u-background-light-gray {
+            background-color: lightgrey;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Declarative Rendering</h1>
+
+    <div id="app-1" class="u-background-light-gray">
+        {{ message }}
+    </div>
+
+    <br/><br/>
+
+    <div id="app-2" class="u-background-light-gray">
+        <span v-bind:title="message">
+            Hover your mouse over me for a few seconds to see my dynamically bound title!
+        </span>
+    </div>
+
+    <h1>Conditionals and Loops</h1>
+
+    <div id="app-3" class="u-background-light-gray">
+        <span v-if="seen">Now you see me</span>
+    </div>
+
+    <br/>
+
+    <div id="app-4" class="u-background-light-gray">
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
+    </div>
+
+    <h1>Handling User Input</h1>
+
+    <div id="app-5" class="u-background-light-gray">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+
+    <br/>
+
+    <div id="app-6" class="u-background-light-gray">
+        <p>{{ message }}</p>
+        <input v-model="message">
+    </div>
+</body>
+
+<script>
+    var app = new Vue({
+        el: "#app-1",
+        data: {
+            message: "Hello Vue!"
+        }
+    });
+
+    var app2 = new Vue({
+        el: "#app-2",
+        data: {
+            message: "You loaded this page on " + new Date().toLocaleString()
+        }
+    });
+
+    var app3 = new Vue({
+        el: "#app-3",
+        data: {
+            seen: true
+        }
+    });
+
+    var app4 = new Vue({
+        el: "#app-4",
+        data: {
+            todos: [
+                { text: "Learn JavaScript" },
+                { text: "Learn Vue" },
+                { text: "Build something awesome" }
+            ]
+        }
+    });
+
+    var app5 = new Vue({
+        el: "#app-5",
+        data: {
+            message: "Hello Vue.js!"
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split("").reverse()
+                    .join("");
+            }
+        }
+    });
+
+    var app6 = new Vue({
+        el: "#app-6",
+        data: {
+            message: "Hello Vue!"
+        }
+    });
+</script>
+
