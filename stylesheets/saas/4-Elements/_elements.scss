@@ -16,4 +16,7 @@ button {
     -webkit-transition-duration: .4s; /* Safari */
     transition-duration: .4s;
     cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $color-light-gray;
 }

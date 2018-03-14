@@ -14,7 +14,10 @@ button {
   -webkit-transition-duration: .4s;
   /* Safari */
   transition-duration: .4s;
-  cursor: pointer; }
+  cursor: pointer;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e0e0e0; }
 
 .o-main-content {
   display: flex; }
@@ -98,7 +101,7 @@ button {
   .c-city-widget:hover {
     background-color: #e0e0e0; }
   .c-city-widget-selected {
-    border-bottom: 10px solid #000055; }
+    border-bottom: 5px solid #000055; }
   .c-city-widget-city {
     overflow: hidden; }
 
