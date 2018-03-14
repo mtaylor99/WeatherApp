@@ -129,12 +129,12 @@ function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
                 AddNewCityToArray(city);
             }
 
-            /* if (loadFirstCityWeather === true) {
-                GetAndDisplayWeatherDataForCity($(".js-city-list")[0].id); 
+            if (loadFirstCityWeather === true) {
+                GetAndDisplayWeatherDataForCity(favouriteCities[0].name); 
 
-                $(".c-city-widget").first()
-                    .addClass("c-city-widget-selected");
-            } */
+                //$(".c-city-widget").first()
+               //     .addClass("c-city-widget-selected");
+            }
         });
 }
 
