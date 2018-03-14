@@ -58,6 +58,16 @@ function AddNewCityToArray(city) {
     favouriteCities.push(favouriteCity);
 }
 
+function SelectCity(city) {
+    for (var i = 0; i < favouriteCities.length; i++) {
+        favouriteCities[i].selected = false;
+
+        if (favouriteCities[i].name === city) {
+            favouriteCities[i].selected = true;
+        }
+    }
+}
+
 function GetSummaryForCity(city) {
     for (var i = 0; i < favouriteCities.length; i++) {
         if (favouriteCities[i].name === city)

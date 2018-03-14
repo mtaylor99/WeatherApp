@@ -1,15 +1,11 @@
 /* eslint-disable no-unused-vars */
-/* global Vue GetAndDisplayWeatherDataForCity favouriteCities */
+/* global Vue GetAndDisplayWeatherDataForCity favouriteCities SelectCity  */
 
 Vue.component("city-widget", {
     props: ["city"],
     methods: {
         onCityWidgetClick: function() { 
-            for (var i = 0; i < favouriteCities.length; i++) {
-                favouriteCities[i].selected = false;
-            }
-
-            this.city.selected = true;
+            SelectCity(this.city.name);
 
             GetAndDisplayWeatherDataForCity(this.city.name);
         }
