@@ -2,36 +2,42 @@
 
 var cities = [
     { 
+        id: 2643743,
         name: "London",
         icon: "images/icons/sunny.svg",
         temperature: 8.2,
         temprange: "c-city-widget-temperature-medium"
     },
     { 
+        id: 4219762,
         name: "Rome",
         icon: "images/icons/sunny.svg",
         temperature: 0.4,
         temprange: "c-city-widget-temperature-cold"
     },
     { 
+        id: 5128638,
         name: "New York",
         icon: "images/icons/snow.svg",
         temperature: -3.0,
         temprange: "c-city-widget-temperature-cold"
     },
     { 
+        id: 6167865,
         name: "Toronto",
         icon: "images/icons/snow.svg",
         temperature: -1.8,
         temprange: "c-city-widget-temperature-cold"
     },
     { 
+        id: 2950158,
         name: "Berlin",
         icon: "images/icons/sunny.svg",
         temperature: 3.4,
         temprange: "c-city-widget-temperature-medium"
     },
     { 
+        id: 292223,
         name: "Dubai",
         icon: "images/icons/wind.svg",
         temperature: 26.5,
@@ -43,7 +49,12 @@ Vue.component("city-widget", {
     props: ["city"],
     methods: {
         onCityWidgetClick: function() { 
-            alert("City Widget Click");
+            $(".c-city-widget").removeClass("c-city-widget-selected");
+
+            GetAndDisplayWeatherDataForCity(this.city.name);
+
+            $(this).closest(".c-city-widget")
+                .addClass("c-city-widget-selected");
         }
     },
     template: "<div class=\"c-city-widget\">" +
