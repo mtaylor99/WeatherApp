@@ -44,13 +44,13 @@ function SaveCitiesToStorage(newCities) {
     window.localStorage.setItem("Cities", cities);
 }
 
-function AddNewCityToArray(id, name, temperature, weather) {
+function AddNewCityToArray(city) {
     var favouriteCity = { 
-        id: id,
-        name: name,
-        icon: GetWeatherIcon(weather),
-        temperature: temperature,
-        temprange: "c-city-widget-temperature-" + GetTemperatureRange(temperature)
+        id: city.id,
+        name: city.name,
+        icon: GetWeatherIcon(city.weather),
+        temperature: city.temperature,
+        temprange: "c-city-widget-temperature-" + GetTemperatureRange(city.temperature)
     };
 
     favouriteCities.push(favouriteCity);
@@ -94,25 +94,6 @@ function GetTemperatureRange(temperature) {
         return "hot";
 }
 
-function AddNewCityToList(name, temperature, weather) {   
-    var html = [];
-    var newTabIndex = $(".js-city-list").length + 3;
-
-    html.push(
-        "<div class=\"c-city-widget\">",
-        "<button id=\"" + name + "\" class=\"js-city-list c-city-widget-button\" alt=" + name + "\" tabindex=\"" + newTabIndex + "\">",
-        "<div class=\"c-city-widget-city\"><label>" + name + "</label></div>",
-        "<br/>",
-        "<div class=\"c-city-widget-weather-icon\"><img src=\"" + GetWeatherIcon(weather) + "\"></img></div>",
-        "<br/>",
-        "<div><label class=\"c-city-widget-temperature-" + GetTemperatureRange(temperature) + "\">" + temperature.toFixed(1) + " &#8451</label></div>",
-        "</button>",
-        "</div>"
-    );
-
-    $(".js-weather-cities-list").append(html.join(""));
-}
-
 function ClearWeatherBannerDetails() {
     
     var citySummary = {
@@ -137,26 +118,22 @@ function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
             var newTabIndex = $(".js-city-list").length + 3;
 
             for (var i = 0; i < result.cnt; i++) {
-                AddNewCityToArray(result.list[i].id, result.list[i].name, result.list[i].main.temp, result.list[i].weather[0].main);
-                AddNewCityToList(result.list[i].name, result.list[i].main.temp, result.list[i].weather[0].main, newTabIndex + i + 3);
+                var city = {
+                    id: result.list[i].id, 
+                    name: result.list[i].name, 
+                    temperature: result.list[i].main.temp, 
+                    weather: result.list[i].weather[0].main
+                };
+
+                AddNewCityToArray(city);
             }
 
-            if (loadFirstCityWeather === true) {
+            /* if (loadFirstCityWeather === true) {
                 GetAndDisplayWeatherDataForCity($(".js-city-list")[0].id); 
 
                 $(".c-city-widget").first()
                     .addClass("c-city-widget-selected");
-            }
-            
-            $(".js-city-list").unbind("click")
-                .bind("click", function() {
-                    $(".c-city-widget").removeClass("c-city-widget-selected");
-
-                    GetAndDisplayWeatherDataForCity((this).closest("button").id);
-
-                    $(this).closest(".c-city-widget")
-                        .addClass("c-city-widget-selected");
-                });
+            } */
         });
 }
 
