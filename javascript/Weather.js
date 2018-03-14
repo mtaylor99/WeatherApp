@@ -120,7 +120,7 @@ function SetWeatherBannerDetails(citySummary) {
     $(".js-weather-entries-fieldset-legend").text("Weather for your selected city '" + citySummary.name + "'");
     $(".js-weather-details-banner-city-name").text(citySummary.name);
     $(".js-weather-details-banner-weather-icon").attr("src",GetWeatherIcon(citySummary.weather));
-    $(".js-weather-details-banner-weather-temperature").html(citySummary.temperature.toFixed(1) + " &#8451");
+    $(".js-weather-details-banner-weather-temperature").html(citySummary.temperature.toFixed(1) + " &deg;C");
 }
 
 function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {

@@ -23,7 +23,7 @@ Vue.component("city-widget", {
               "        </div>" +
               "        <br/>"  +
               "        <div>" +
-              "            <label v-bind:class=\"city.temprange\">{{ city.temperature }}&#8451</label>" +
+              "            <label v-bind:class=\"city.temprange\">{{ city.temperature }}&deg;C</label>" +
               "        </div>" +
               "    </button>" +
               "</div>"
