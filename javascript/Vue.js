@@ -27,17 +27,38 @@ var vueApp = new Vue({
             { 
                 id: 0, 
                 name: "London",
-                temperature: 9.6
+                icon: "images/icons/sunny.svg",
+                temperature: 8.2
             },
             { 
                 id: 1, 
-                name: "New York",
-                temperature: 9.6
+                name: "Rome",
+                icon: "images/icons/sunny.svg",
+                temperature: 0.4
             },
             { 
                 id: 2, 
-                name: "Dublin",
-                temperature: 9.6
+                name: "New York",
+                icon: "images/icons/snow.svg",
+                temperature: -3.0
+            },
+            { 
+                id: 3, 
+                name: "Toronto",
+                icon: "images/icons/snow.svg",
+                temperature: -1.8
+            },
+            { 
+                id: 4, 
+                name: "Berlin",
+                icon: "images/icons/sunny.svg",
+                temperature: 3.4
+            },
+            { 
+                id: 5, 
+                name: "Dubai",
+                icon: "images/icons/sunny.svg",
+                temperature: 26.5
             }
         ]
     }
