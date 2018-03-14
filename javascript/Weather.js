@@ -50,7 +50,8 @@ function AddNewCityToArray(city) {
         name: city.name,
         icon: GetWeatherIcon(city.weather),
         temperature: city.temperature,
-        temprange: "c-city-widget-temperature-" + GetTemperatureRange(city.temperature)
+        temprange: "c-city-widget-temperature-" + GetTemperatureRange(city.temperature),
+        tabindex: $(".js-city-list").length + 3
     };
 
     favouriteCities.push(favouriteCity);
