@@ -15,7 +15,9 @@ Vue.component("city-widget", {
         }
     },
     template: "<div class=\"c-city-widget\">" +
-              "    <button id=\"{{ city.name }}\" class=\"js-city-list c-city-widget-button\" alt=\"{{ city.name }}\" tabindex=\"{{ city.tabindex }}\" v-on:click=\"onCityWidgetClick\">" +
+              "    <button id=\"{{ city.name }}\" " +
+              "v-bind:class=\"{'js-city-list':true, 'c-city-widget-button':true, 'c-city-widget-selected':(city.selected)}\"" +
+              " alt=\"{{ city.name }}\" tabindex=\"{{ city.tabindex }}\" v-on:click=\"onCityWidgetClick\">" +
               "        <div class=\"c-city-widget-city\">" +
               "            <label>{{ city.name }}</label>" +
               "        </div>" +

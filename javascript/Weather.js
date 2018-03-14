@@ -131,8 +131,6 @@ function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
                 AddNewCityToArray(city);
             }
 
-            debugger;
-
             if (loadFirstCityWeather === true) {
                 favouriteCities[0].selected = true;
                 GetAndDisplayWeatherDataForCity(favouriteCities[0].name); 
