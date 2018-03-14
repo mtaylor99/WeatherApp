@@ -31,7 +31,7 @@ Vue.component("city-widget", {
 });
 
 var vueApp = new Vue({
-    el: ".js-city-widgets",
+    el: ".vue-city-widgets",
     data: {
         cities: favouriteCities
     }

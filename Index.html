@@ -45,8 +45,12 @@
             <div class="u-margin-top-10">
                 <fieldset>
                     <legend>Your favourite cities list</legend>
-                    <div class="js-weather-cities-list o-city-widgets">
-                        
+                    <div class="vue-city-widgets js-weather-cities-list o-city-widgets">
+                        <city-widget
+                            v-for="city in cities"
+                            v-bind:city="city"
+                            v-bind:key="city.id">
+                        </city-widget>
                     </div>  
                 </fieldset>  
             </div>   
@@ -83,14 +87,6 @@
 
             </fieldset>
         </div>  
-    </div>
-
-    <div class="js-city-widgets">
-        <city-widget
-            v-for="city in cities"
-            v-bind:city="city"
-            v-bind:key="city.id">
-        </city-widget>
     </div>
 
     <script src="javascript/Charts.js"></script>
