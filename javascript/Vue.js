@@ -10,7 +10,7 @@ Vue.component("city-widget", {
               "        </div>" +
               "        <br/>" +
               "        <div class=\"c-city-widget-weather-icon\">" +
-              "            <img src=\"images/icons/sunny.svg\"></img>" +
+              "            <img v-bind:src=\"city.icon\" />" +
               "        </div>" +
               "        <br/>"  +
               "        <div>" +
@@ -57,7 +57,7 @@ var vueApp = new Vue({
             { 
                 id: 5, 
                 name: "Dubai",
-                icon: "images/icons/sunny.svg",
+                icon: "images/icons/wind.svg",
                 temperature: 26.5
             }
         ]
