@@ -1,4 +1,5 @@
-/* global Vue */
+/* eslint-disable no-unused-vars */
+/* global Vue GetAndDisplayWeatherDataForCity favouriteCities */
 
 Vue.component("city-widget", {
     props: ["city"],

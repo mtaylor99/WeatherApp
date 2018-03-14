@@ -5,52 +5,7 @@ var bannerHeight = null;
 var cities = [];
 var currentCityName;
 var cityWeatherResults;
-var citiesSummaryWeather = [];
 var favouriteCities = [];
-/*var favouriteCities = [
-    { 
-        id: 2643743,
-        name: "London",
-        icon: "images/icons/sunny.svg",
-        temperature: 8.2,
-        temprange: "c-city-widget-temperature-medium"
-    },
-    { 
-        id: 4219762,
-        name: "Rome",
-        icon: "images/icons/sunny.svg",
-        temperature: 0.4,
-        temprange: "c-city-widget-temperature-cold"
-    },
-    { 
-        id: 5128638,
-        name: "New York",
-        icon: "images/icons/snow.svg",
-        temperature: -3.0,
-        temprange: "c-city-widget-temperature-cold"
-    },
-    { 
-        id: 6167865,
-        name: "Toronto",
-        icon: "images/icons/snow.svg",
-        temperature: -1.8,
-        temprange: "c-city-widget-temperature-cold"
-    },
-    { 
-        id: 2950158,
-        name: "Berlin",
-        icon: "images/icons/sunny.svg",
-        temperature: 3.4,
-        temprange: "c-city-widget-temperature-medium"
-    },
-    { 
-        id: 292223,
-        name: "Dubai",
-        icon: "images/icons/wind.svg",
-        temperature: 26.5,
-        temprange: "c-city-widget-temperature-hot"
-    }
-]; */
  
 function CheckPageSize() {
     //We need to monitor media query changes, to re-draw the Google Charts.
@@ -89,24 +44,22 @@ function SaveCitiesToStorage(newCities) {
     window.localStorage.setItem("Cities", cities);
 }
 
-function AddNewCityToArray(name, temperature, weather) {
-    //weather: weather 
-
+function AddNewCityToArray(id, name, temperature, weather) {
     var favouriteCity = { 
-        id: 2643743,
+        id: id,
         name: name,
-        icon: "images/icons/sunny.svg",
+        icon: GetWeatherIcon(weather),
         temperature: temperature,
-        temprange: "c-city-widget-temperature-medium"
+        temprange: "c-city-widget-temperature-" + GetTemperatureRange(temperature)
     };
 
     favouriteCities.push(favouriteCity);
 }
 
 function GetSummaryForCity(city) {
-    for (var i = 0; i < citiesSummaryWeather.length; i++) {
-        if (citiesSummaryWeather[i].name === city)
-            return citiesSummaryWeather[i];
+    for (var i = 0; i < favouriteCities.length; i++) {
+        if (favouriteCities[i].name === city)
+            return favouriteCities[i];
     }
 }
 
@@ -124,6 +77,7 @@ function GetWeatherIcon(weather) {
             return "images/icons/cloudy.svg";
         case "Mist":
             return "images/icons/wind.svg";
+        case "Fog":
         case "Dust":
             return "images/icons/dust.svg";
         case "Snow":
@@ -183,7 +137,7 @@ function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
             var newTabIndex = $(".js-city-list").length + 3;
 
             for (var i = 0; i < result.cnt; i++) {
-                AddNewCityToArray(result.list[i].name, result.list[i].main.temp, result.list[i].weather[0].main);
+                AddNewCityToArray(result.list[i].id, result.list[i].name, result.list[i].main.temp, result.list[i].weather[0].main);
                 AddNewCityToList(result.list[i].name, result.list[i].main.temp, result.list[i].weather[0].main, newTabIndex + i + 3);
             }
 
