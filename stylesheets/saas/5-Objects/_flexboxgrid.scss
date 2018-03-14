@@ -7,7 +7,7 @@
     flex-wrap: wrap;
 }
 
-@media only screen and (max-width: 768px) {  //Mobile
+@media only screen and (max-width: 768px) {  //Tablet
     .o-main-content {
         flex-direction: column;
     }
@@ -38,7 +38,7 @@
     flex: 3;
 
 
-    @media only screen and (max-width: 768px) {  //Mobile
+    @media only screen and (max-width: 768px) {  //Tablet
         min-width: 500px;
         margin-top: 20px;
     }
