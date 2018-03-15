@@ -1,4 +1,16 @@
-/*global CheckPageSize RemoveCitiesFromStorage GetCitiesFromStorage GetAndDisplayWeatherDataForCity SaveCitiesToStorage GetSummaryWeatherForCities ClearWeatherBannerDetails */
+/*global DrawCharts RemoveCitiesFromStorage GetCitiesFromStorage GetAndDisplayWeatherDataForCity SaveCitiesToStorage GetSummaryWeatherForCities ClearWeatherBannerDetails */
+
+var bannerHeight = null;
+
+function CheckPageSize() {
+    //We need to monitor media query changes, to re-draw the Google Charts.
+
+    if (bannerHeight === null) {
+        bannerHeight = $(".c-weather-app-banner").height();
+    } else if (bannerHeight !== $(".c-weather-app-banner").height()) {
+        DrawCharts();
+    }
+}
 
 $(document).ready(function(){
     CheckPageSize();

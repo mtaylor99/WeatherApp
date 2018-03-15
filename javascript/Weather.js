@@ -1,21 +1,12 @@
 /* global google drawTemperatureChart drawHumidityChart drawWindSpeedChart */
 /* eslint-disable no-unused-vars */
 
-var bannerHeight = null;
 var storedCities = [];
 var currentCityName;
 var currentCityResult = null;
 var favouriteCities = [];
  
-function CheckPageSize() {
-    //We need to monitor media query changes, to re-draw the Google Charts.
 
-    if (bannerHeight === null) {
-        bannerHeight = $(".c-weather-app-banner").height();
-    } else if (bannerHeight !== $(".c-weather-app-banner").height()) {
-        DrawCharts();
-    }
-}
 
 function RemoveCitiesFromStorage() {    
     window.localStorage.removeItem("Cities");
@@ -72,6 +63,47 @@ function AddNewCityToArray(city) {
     favouriteCities.push(favouriteCity);
 }
 
+function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
+    $.getJSON("http://api.openweathermap.org/data/2.5/group?APPID=2e7d0233a8dffc4366669ec64ea59731&units=metric&id=" + cityIds,
+        function(result){  
+            var newTabIndex = $(".js-city-list").length + 3;
+
+            for (var i = 0; i < result.cnt; i++) {
+                var city = {
+                    id: result.list[i].id, 
+                    name: result.list[i].name, 
+                    temperature: result.list[i].main.temp, 
+                    weather: result.list[i].weather[0].main,
+                    selected: false
+                };
+
+                AddNewCityToArray(city);
+            }
+
+            if (loadFirstCityWeather === true) {
+                favouriteCities[0].selected = true;
+                GetAndDisplayWeatherDataForCity(favouriteCities[0].name); 
+            } else {
+                SelectCity(currentCityName);
+            }
+        });
+}
+
+function GetAndDisplayWeatherDataForCity(city) {
+    $.getJSON("http://api.openweathermap.org/data/2.5/forecast?APPID=2e7d0233a8dffc4366669ec64ea59731&q=" + city,
+        function(result){  
+            var citySummary = GetSummaryForCity(city);
+
+            currentCityName = result.city.name;
+
+            SetWeatherBannerDetails(citySummary);
+
+            currentCityResult = result;
+
+            DrawCharts();
+        });
+}
+
 function SelectCity(city) {
     for (var i = 0; i < favouriteCities.length; i++) {
         favouriteCities[i].selected = false;
@@ -120,6 +152,13 @@ function GetTemperatureRange(temperature) {
         return "hot";
 }
 
+function SetWeatherBannerDetails(citySummary) {
+    $(".js-weather-entries-fieldset-legend").text("Weather for your selected city '" + citySummary.name + "'");
+    $(".js-weather-details-banner-city-name").text(citySummary.name);
+    $(".js-weather-details-banner-weather-icon").attr("src",GetWeatherIcon(citySummary.weather));
+    $(".js-weather-details-banner-weather-temperature").html(citySummary.temperature.toFixed(1) + " &deg;C");
+}
+
 function ClearWeatherBannerDetails() {
     
     var citySummary = {
@@ -129,54 +168,6 @@ function ClearWeatherBannerDetails() {
     };
 
     SetWeatherBannerDetails(citySummary);
-}
-
-function SetWeatherBannerDetails(citySummary) {
-    $(".js-weather-entries-fieldset-legend").text("Weather for your selected city '" + citySummary.name + "'");
-    $(".js-weather-details-banner-city-name").text(citySummary.name);
-    $(".js-weather-details-banner-weather-icon").attr("src",GetWeatherIcon(citySummary.weather));
-    $(".js-weather-details-banner-weather-temperature").html(citySummary.temperature.toFixed(1) + " &deg;C");
-}
-
-function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
-    $.getJSON("http://api.openweathermap.org/data/2.5/group?APPID=2e7d0233a8dffc4366669ec64ea59731&units=metric&id=" + cityIds,
-        function(result){  
-            var newTabIndex = $(".js-city-list").length + 3;
-
-            for (var i = 0; i < result.cnt; i++) {
-                var city = {
-                    id: result.list[i].id, 
-                    name: result.list[i].name, 
-                    temperature: result.list[i].main.temp, 
-                    weather: result.list[i].weather[0].main,
-                    selected: false
-                };
-
-                AddNewCityToArray(city);
-            }
-
-            if (loadFirstCityWeather === true) {
-                favouriteCities[0].selected = true;
-                GetAndDisplayWeatherDataForCity(favouriteCities[0].name); 
-            } else {
-                SelectCity(currentCityName);
-            }
-        });
-}
-
-function GetAndDisplayWeatherDataForCity(city) {
-    $.getJSON("http://api.openweathermap.org/data/2.5/forecast?APPID=2e7d0233a8dffc4366669ec64ea59731&q=" + city,
-        function(result){  
-            var citySummary = GetSummaryForCity(city);
-
-            currentCityName = result.city.name;
-
-            SetWeatherBannerDetails(citySummary);
-
-            currentCityResult = result;
-
-            DrawCharts();
-        });
 }
 
 function DrawCharts() {
