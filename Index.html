@@ -9,17 +9,17 @@
     <link rel="stylesheet" href="stylesheets/Index.css">
 </head>
 <body>
-    <div class="c-weather-app-banner">
+    <div class="c-weather-app-banner" role="banner">
         <h1>Weather App</h1>
     </div>
     <div class="o-main-content">
-        <div class="o-cities-management">
+        <div class="o-cities-management" role="favourties">
             <div class="o-city-management">
                 <fieldset>
                     <legend>Manage your favourite cities</legend>
                     <div>
                         <div class="c-favourite-cities-select">
-                            <select class="js-new-cities-select-list c-new-cities-select-list">
+                            <select class="js-new-cities-select-list c-new-cities-select-list" aria-label="List of available cities" >
                                 <option value="0"></option>
                                 <option value="1816670">Beijing</option>
                                 <option value="2950158">Berlin</option>
@@ -39,9 +39,9 @@
                             </select>
                         </div>
 
-                        <button class="js-add-favourite-cities-button c-favourite-cities-button c-manage-favourite-cities-button" alt="Manage your favourite cities list" tabindex="2"></button>
+                        <button class="js-add-favourite-cities-button c-favourite-cities-button c-manage-favourite-cities-button" aria-label="Add selected city to the favourite list" alt="Add selected city to the favourite list" tabindex="2"></button>
 
-                        <button class="js-clear-favourite-cities-button c-favourite-cities-button c-clear-favourite-cities-button" tabindex="0"></button>
+                        <button class="js-clear-favourite-cities-button c-favourite-cities-button c-clear-favourite-cities-button" aria-label="Clear your favourite cities list" alt="Clear your favourite cities list" tabindex="0"></button>
                     </div>
                     <div>
                         <label class="js-add-favourite-cities-validation c-add-favourite-cities-validation u-hidden">Please select a city</label>
@@ -61,7 +61,7 @@
                 </fieldset>  
             </div>   
         </div>
-        <div class="o-weather-details">
+        <div class="o-weather-details" role="details">
             <fieldset>
                 <legend class="js-weather-entries-fieldset-legend">Weather for your selected city</legend>
 
@@ -69,7 +69,7 @@
                     <div class="c-weather-details-banner">
                         <label class="js-weather-details-banner-city-name c-weather-details-banner-city-name"></label>
                             
-                        <img class="js-weather-details-banner-weather-icon c-weather-details-banner-weather-icon"></img>
+                        <img class="js-weather-details-banner-weather-icon c-weather-details-banner-weather-icon" alt="Selected city weather banner"></img>
                         <div>
                             <label class="js-weather-details-banner-weather-temperature c-weather-details-banner-weather-temperature"></label>
                         </div>

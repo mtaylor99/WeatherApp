@@ -19,7 +19,7 @@ Vue.component("city-widget", {
               "        </div>" +
               "        <br/>" +
               "        <div class=\"c-city-widget-weather-icon\">" +
-              "            <img v-bind:src=\"city.icon\" />" +
+              "            <img v-bind:src=\"city.icon\" v-bind:alt=\"city.weather\" />" +
               "        </div>" +
               "        <br/>"  +
               "        <div>" +

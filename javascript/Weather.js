@@ -55,6 +55,7 @@ function AddNewCityToArray(city) {
     var favouriteCity = { 
         id: city.id,
         name: city.name,
+        weather: "Current weather is" + city.weather,
         icon: GetWeatherIcon(city.weather),
         temperature: city.temperature,
         temprange: "c-city-widget-temperature-" + GetTemperatureRange(city.temperature),
@@ -157,7 +158,8 @@ function GetTemperatureRange(temperature) {
 function SetWeatherBannerDetails(citySummary) {
     $(".js-weather-entries-fieldset-legend").text("Weather for your selected city '" + citySummary.name + "'");
     $(".js-weather-details-banner-city-name").text(citySummary.name);
-    $(".js-weather-details-banner-weather-icon").attr("src",GetWeatherIcon(citySummary.weather));
+    $(".js-weather-details-banner-weather-icon").attr("src", citySummary.icon);
+    $(".js-weather-details-banner-weather-icon").attr("alt", "Current weather in" + citySummary.name + "is" + citySummary.weather);
     $(".js-weather-details-banner-weather-temperature").html(citySummary.temperature.toFixed(1) + " &deg;C");
 }
 
@@ -166,7 +168,7 @@ function ClearWeatherBannerDetails() {
     var citySummary = {
         name: "No city selected", 
         temperature: 0,
-        weather: "" 
+        weather: ""
     };
 
     SetWeatherBannerDetails(citySummary);
