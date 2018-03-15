@@ -6,8 +6,6 @@ var currentCityName;
 var currentCityResult = null;
 var favouriteCities = [];
  
-
-
 function RemoveCitiesFromStorage() {    
     window.localStorage.removeItem("Cities");
 }
@@ -33,6 +31,10 @@ function SaveCitiesToStorage(newCities) {
     }
 
     window.localStorage.setItem("Cities", storedCities);
+}
+
+function SetCurrentCityName(city) {
+    currentCityName = city;
 }
 
 function IsCityInArray(cityId) {

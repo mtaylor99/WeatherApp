@@ -1,4 +1,4 @@
-/*global DrawCharts RemoveCitiesFromStorage GetCitiesFromStorage GetAndDisplayWeatherDataForCity SaveCitiesToStorage GetSummaryWeatherForCities ClearWeatherBannerDetails */
+/*global SetCurrentCityName DrawCharts RemoveCitiesFromStorage GetCitiesFromStorage GetAndDisplayWeatherDataForCity SaveCitiesToStorage GetSummaryWeatherForCities ClearWeatherBannerDetails */
 
 var bannerHeight = null;
 
@@ -46,7 +46,7 @@ $(document).ready(function(){
                 city.push(newCityId);
                 SaveCitiesToStorage(city);
 
-                $(".js-new-cities-select-list").prop("selectedIndex", 0);
+                SetCurrentCityName(newCity);
             } else {
                 $(".js-add-favourite-cities-validation").removeClass("u-hidden");
             }
