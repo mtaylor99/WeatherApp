@@ -7,9 +7,11 @@ google.charts.load("current", {packages: ["corechart","line"]});
 function CheckPageSize() {
     //We need to monitor media query changes, to re-draw the Google Charts.
 
+    var currentBannerHeight = $(".c-weather-app-banner").height();
+
     if (bannerHeight === null) {
-        bannerHeight = $(".c-weather-app-banner").height();
-    } else if (bannerHeight !== $(".c-weather-app-banner").height()) {
+        bannerHeight = currentBannerHeight;
+    } else if (bannerHeight !== currentBannerHeight) {
         DrawCharts();
     }
 }
