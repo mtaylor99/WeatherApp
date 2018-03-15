@@ -44,7 +44,21 @@ function SaveCitiesToStorage(newCities) {
     window.localStorage.setItem("Cities", storedCities);
 }
 
+function IsCityInArray(cityId) {
+    for (var i = 0 ; i < favouriteCities.length; i++) {
+        if (favouriteCities[i].id === cityId) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 function AddNewCityToArray(city) {
+    if (IsCityInArray(city.id)) {
+        return;
+    }
+
     var favouriteCity = { 
         id: city.id,
         name: city.name,
