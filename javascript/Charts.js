@@ -1,9 +1,7 @@
 /* eslint-disable no-unused-vars */
-/* global google drawTemperatureChart drawHumidityChart */
+/* global drawTemperatureChart drawHumidityChart */
 
 var KELVIN_TO_CELSIUS = 273.15;
-
-google.charts.load("current", {packages: ["corechart","line"]});  
 
 function GetDayOfWeek(t) {
     var dt = new Date(t * 1000);

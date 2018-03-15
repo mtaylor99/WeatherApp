@@ -1,6 +1,8 @@
-/*global SetCurrentCityName DrawCharts RemoveCitiesFromStorage GetCitiesFromStorage GetAndDisplayWeatherDataForCity SaveCitiesToStorage GetSummaryWeatherForCities ClearWeatherBannerDetails */
+/*global google SetCurrentCityName DrawCharts RemoveCitiesFromStorage GetCitiesFromStorage GetAndDisplayWeatherDataForCity SaveCitiesToStorage GetSummaryWeatherForCities ClearWeatherBannerDetails */
 
 var bannerHeight = null;
+
+google.charts.load("current", {packages: ["corechart","line"]});  
 
 function CheckPageSize() {
     //We need to monitor media query changes, to re-draw the Google Charts.
