@@ -1,4 +1,4 @@
-/* global beforeEach describe it expect GetCitiesFromStorage RemoveCitiesFromStorage GetWeatherIcon GetTemperatureRange */
+/* global beforeEach describe it expect GetCitiesFromStorage RemoveCitiesFromStorage GetWeatherIcon GetTemperatureRange SaveCitiesToStorage */
 
 describe("Weather App - Storage Management", function() {
     beforeEach(function() {
@@ -103,5 +103,17 @@ describe("Weather App - Temperature", function() {
         var icon = GetTemperatureRange(16);
 
         expect(icon === "hot").toBe(true);
+    });
+});
+
+describe("Weather App - AJAX", function() {
+    it("Temperature(cold) is correct", function() {
+        RemoveCitiesFromStorage();
+
+        SaveCitiesToStorage = jasmine.createSpy("SaveCitiesToStorage");
+
+        GetCitiesFromStorage();
+
+        expect(SaveCitiesToStorage).toHaveBeenCalled();
     });
 });
