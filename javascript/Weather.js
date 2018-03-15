@@ -4,6 +4,7 @@
 var bannerHeight = null;
 var storedCities = [];
 var currentCityName;
+var currentCityResult = null;
 var favouriteCities = [];
  
 function CheckPageSize() {
@@ -12,7 +13,7 @@ function CheckPageSize() {
     if (bannerHeight === null) {
         bannerHeight = $(".c-weather-app-banner").height();
     } else if (bannerHeight !== $(".c-weather-app-banner").height()) {
-        GetAndDisplayWeatherDataForCity(currentCityName);
+        DrawCharts();
     }
 }
 
@@ -124,7 +125,7 @@ function SetWeatherBannerDetails(citySummary) {
 }
 
 function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
-    $.getJSON("http://api.openweathermap.org/data/2.5/group?APPID=8bfabc4405e188160d830fc5f133e398&units=metric&id=" + cityIds,
+    $.getJSON("http://api.openweathermap.org/data/2.5/group?APPID=2e7d0233a8dffc4366669ec64ea59731&units=metric&id=" + cityIds,
         function(result){  
             var newTabIndex = $(".js-city-list").length + 3;
 
@@ -150,7 +151,7 @@ function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
 }
 
 function GetAndDisplayWeatherDataForCity(city) {
-    $.getJSON("http://api.openweathermap.org/data/2.5/forecast?APPID=8bfabc4405e188160d830fc5f133e398&q=" + city,
+    $.getJSON("http://api.openweathermap.org/data/2.5/forecast?APPID=2e7d0233a8dffc4366669ec64ea59731&q=" + city,
         function(result){  
             var citySummary = GetSummaryForCity(city);
 
@@ -158,8 +159,14 @@ function GetAndDisplayWeatherDataForCity(city) {
 
             SetWeatherBannerDetails(citySummary);
 
-            google.charts.setOnLoadCallback(drawTemperatureChart(result));
-            google.charts.setOnLoadCallback(drawHumidityChart(result));
-            google.charts.setOnLoadCallback(drawWindSpeedChart(result));
+            currentCityResult = result;
+
+            DrawCharts();
         });
+}
+
+function DrawCharts() {
+    google.charts.setOnLoadCallback(drawTemperatureChart(currentCityResult));
+    google.charts.setOnLoadCallback(drawHumidityChart(currentCityResult));
+    google.charts.setOnLoadCallback(drawWindSpeedChart(currentCityResult));
 }

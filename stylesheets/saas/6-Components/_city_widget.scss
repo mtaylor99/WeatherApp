@@ -15,7 +15,7 @@
     }
 }
 
-@media only screen and (max-width: 768px) {  //Tablet
+@media only screen and (max-width: 600px) {  //Mobile
     .c-city-widget {
         width: 70px;
         min-width: 70px;
@@ -58,7 +58,50 @@
     }
 }
 
-@media only screen and (min-width: 768px) { //Web
+@media only screen and (min-width: 600px) {  //Tablet
+    .c-city-widget {
+        width: 70px;
+        min-width: 70px;
+        height: 140px;
+
+        &-button {
+            width: 70px;
+            height: 140px;
+            background-color: $color-white;
+        }
+
+        &-city {
+            @include font-size(8);
+            font-family: $stack-1; 
+            color: $color-dark-blue; 
+        }
+
+        &-weather-icon {
+
+        }
+
+        &-temperature-cold,
+        &-temperature-medium,
+        &-temperature-hot {
+            @include font-size(7);
+            font-family: $stack-1;  
+        }
+
+        &-temperature-cold {
+            color: $color-blue;
+        }
+
+        &-temperature-medium {
+            color: $color-dark-green;
+        }
+
+        &-temperature-hot {
+            color: $color-orange;
+        } 
+    }
+}
+
+@media only screen and (min-width: 1000px) { //Web
     .c-city-widget {
         width: 100px;
         min-width: 100px;

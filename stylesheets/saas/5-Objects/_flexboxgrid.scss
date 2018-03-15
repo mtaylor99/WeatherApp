@@ -7,7 +7,7 @@
     flex-wrap: wrap;
 }
 
-@media only screen and (max-width: 768px) {  //Tablet
+@media only screen and (max-width: 600px) {  //Mobile
     .o-main-content {
         flex-direction: column;
     }
@@ -18,7 +18,18 @@
     }
 }
 
-@media only screen and (min-width: 768px) { //Web
+@media only screen and (max-width: 800px) {  //Tablet
+    .o-main-content {
+        flex-direction: column;
+    }
+
+    .o-city-widgets {
+        flex-direction: row;
+        min-height: 170px;      
+    }
+}
+
+@media only screen and (min-width: 1000px) { //Web
     .o-main-content {
         flex-direction: row;
     }
@@ -38,12 +49,17 @@
     flex: 3;
 
 
-    @media only screen and (max-width: 768px) {  //Tablet
+    @media only screen and (max-width: 600px) {  //Mobile
         min-width: 500px;
         margin-top: 20px;
     }
 
-    @media only screen and (min-width: 768px) { //Web
+    @media only screen and (min-width: 800px) { //Tablet
+        min-width: 470px;
+        margin-left: 20px;
+    }  
+
+    @media only screen and (min-width: 1000px) { //Web
         min-width: 630px;
         margin-left: 20px;
     }  
