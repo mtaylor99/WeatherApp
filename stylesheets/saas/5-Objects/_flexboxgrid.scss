@@ -49,17 +49,14 @@
     flex: 3;
 
     @include mq($until: mobile) {
-        //min-width: 500px;
         margin-top: 10px;
     }
 
     @include mq($from: mobile, $until: desktop) {
-        //min-width: 470px;
         margin-top: 10px;
     }  
 
     @include mq($from: desktop) {
-        //min-width: 630px;
         margin-left: 10px;
     }  
 }
