@@ -1,4 +1,7 @@
-/* global beforeEach describe it expect GetCitiesFromStorage RemoveCitiesFromStorage GetWeatherIcon GetTemperatureRange SaveCitiesToStorage */
+/* eslint-disable no-unused-vars */
+/* global jasmine describe beforeEach it expect RemoveCitiesFromStorage GetCitiesFromStorage GetWeatherIcon GetTemperatureRange */
+
+var SaveCitiesToStorage;
 
 describe("Weather App - Storage Management", function() {
     beforeEach(function() {
@@ -27,6 +30,28 @@ describe("Weather App - Storage Management", function() {
         }
 
         expect(result).toBe(false);
+    });
+
+    it("Save cities to storage called (createSpy)", function() {
+        RemoveCitiesFromStorage();
+
+        SaveCitiesToStorage = jasmine.createSpy("SaveCitiesToStorage");
+
+        GetCitiesFromStorage();
+
+        expect(SaveCitiesToStorage).toHaveBeenCalled();
+    });
+
+    it("Save cities to storage called (createSpy return new function)", function() {
+        RemoveCitiesFromStorage();
+
+        SaveCitiesToStorage = jasmine.createSpy("SaveCitiesToStorage").and.callFake(function() {
+            return;
+        });
+
+        GetCitiesFromStorage();
+
+        expect(SaveCitiesToStorage).toHaveBeenCalled();
     });
 });
 
@@ -103,17 +128,5 @@ describe("Weather App - Temperature", function() {
         var icon = GetTemperatureRange(16);
 
         expect(icon === "hot").toBe(true);
-    });
-});
-
-describe("Weather App - AJAX", function() {
-    it("Temperature(cold) is correct", function() {
-        RemoveCitiesFromStorage();
-
-        SaveCitiesToStorage = jasmine.createSpy("SaveCitiesToStorage");
-
-        GetCitiesFromStorage();
-
-        expect(SaveCitiesToStorage).toHaveBeenCalled();
     });
 });
