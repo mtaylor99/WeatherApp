@@ -9,6 +9,15 @@
     }
 
     @include mq($until: mobile) {
+        height: 32px;
+        background-size: 100% 32px;
+
+        h1 {
+            @include font-size(16);
+        }
+    }
+
+    @include mq($from: mobile, $until: desktop) {
         height: 64px;
         background-size: 100% 64px;
 
@@ -16,22 +25,13 @@
             @include font-size(24);
         }
     }
-
-    @include mq($from: mobile, $until: desktop) {
+    
+    @include mq($from: desktop) {
         height: 96px;
         background-size: 100% 96px;
 
         h1 {
             @include font-size(26);
-        }
-    }
-    
-    @include mq($from: desktop) {
-        height: 128px;
-        background-size: 100% 128px;
-
-        h1 {
-            @include font-size(48);
         }
     }
 }
