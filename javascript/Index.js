@@ -1,26 +1,16 @@
 /*global google SetCurrentCityName DrawCharts RemoveCitiesFromStorage GetCitiesFromStorage GetAndDisplayWeatherDataForCity SaveCitiesToStorage GetSummaryWeatherForCities ClearWeatherBannerDetails */
 
-var bannerHeight = null;
-
 google.charts.load("current", {packages: ["corechart","line"]});  
 
-function CheckPageSize() {
-    //We need to monitor media query changes, to re-draw the Google Charts.
-
-    var currentBannerHeight = $(".c-weather-app-banner").height();
-
-    if (bannerHeight === null) {
-        bannerHeight = currentBannerHeight;
-    } else if (bannerHeight !== currentBannerHeight) {
-        DrawCharts();
-    }
-}
-
 $(document).ready(function(){
-    CheckPageSize();
-    $(window).resize(CheckPageSize);
 
+    var id;
     var cityIds = GetCitiesFromStorage();
+    
+    $(window).resize(function() {
+        clearTimeout(id);
+        id = setTimeout(DrawCharts, 500);
+    });
 
     GetSummaryWeatherForCities(cityIds, true);
 
