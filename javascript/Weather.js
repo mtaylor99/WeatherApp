@@ -161,6 +161,11 @@ function SetWeatherBannerDetails(citySummary) {
     $(".js-weather-details-banner-weather-icon").attr("src", citySummary.icon);
     $(".js-weather-details-banner-weather-icon").attr("alt", "Current weather in" + citySummary.name + "is" + citySummary.weather);
     $(".js-weather-details-banner-weather-temperature").html(citySummary.temperature.toFixed(1) + " &deg;C");
+
+    $(".js-weather-details-banner-weather-temperature").removeClass("c-city-widget-temperature-cold");
+    $(".js-weather-details-banner-weather-temperature").removeClass("c-city-widget-temperature-medium");
+    $(".js-weather-details-banner-weather-temperature").removeClass("c-city-widget-temperature-hot");
+
     $(".js-weather-details-banner-weather-temperature").addClass("c-city-widget-temperature-" + GetTemperatureRange(citySummary.temperature.toFixed(1)));
 }
 
