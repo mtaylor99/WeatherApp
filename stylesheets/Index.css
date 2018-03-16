@@ -82,6 +82,8 @@ button {
   background-repeat: no-repeat;
   padding-left: 10px;
   margin-bottom: 10px; }
+  .c-weather-app-banner h1 {
+    color: #ffffff; }
   @media (max-width: 19.99em) {
     .c-weather-app-banner {
       height: 64px;
@@ -169,7 +171,7 @@ button {
   .c-city-widget-temperature-cold, .c-city-widget-temperature-medium, .c-city-widget-temperature-hot {
     font-size: 1.2rem; } }
 .c-weather-details-banner {
-  background: linear-gradient(to right, #5590D4, #98C1E8);
+  background: linear-gradient(to right, #5590D4, #ffffff);
   width: 100%;
   margin-bottom: 10px; }
   .c-weather-details-banner-city-name {
@@ -183,7 +185,6 @@ button {
     padding: 5px; }
   .c-weather-details-banner-weather-temperature {
     font-family: arial, helvetica, sans-serif;
-    color: #ffffff;
     position: relative;
     float: right; }
   @media (max-width: 19.99em) {

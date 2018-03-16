@@ -4,6 +4,10 @@
     padding-left: 10px;
     margin-bottom: 10px;
 
+    h1 {
+        color: $color-white;
+    }
+
     @include mq($until: mobile) {
         height: 64px;
         background-size: 100% 64px;
