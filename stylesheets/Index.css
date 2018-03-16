@@ -134,6 +134,9 @@ button {
     font-family: arial, helvetica, sans-serif;
     color: #000055;
     overflow: hidden; }
+  .c-city-widget-weather-icon {
+    display: block;
+    margin: auto; }
   .c-city-widget-temperature-cold, .c-city-widget-temperature-medium, .c-city-widget-temperature-hot {
     font-family: arial, helvetica, sans-serif; }
   .c-city-widget-temperature-cold {

@@ -20,6 +20,11 @@
         overflow: hidden;
     }
 
+    &-weather-icon {
+        display: block; 
+        margin: auto;
+    }
+
     &-temperature-cold,
     &-temperature-medium,
     &-temperature-hot {
