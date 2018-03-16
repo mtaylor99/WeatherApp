@@ -2,6 +2,10 @@
     margin: 10px;
     text-align: center;
 
+    &-button {
+        background-color: $color-white;
+    }
+
     &:hover {
         background-color: $color-light-gray;
     } 
@@ -11,135 +15,88 @@
     }
 
     &-city {
+        font-family: $stack-1; 
+        color: $color-dark-blue; 
         overflow: hidden;
     }
+
+    &-temperature-cold,
+    &-temperature-medium,
+    &-temperature-hot {
+        font-family: $stack-1;  
+    }
+
+    &-temperature-cold {
+        color: $color-blue;
+    }
+
+    &-temperature-medium {
+        color: $color-dark-green;
+    }
+
+    &-temperature-hot {
+        color: $color-orange;
+    } 
 }
 
-@media only screen and (max-width: 600px) {  //Mobile
+@include mq($until: mobile) {
     .c-city-widget {
-        width: 70px;
-        min-width: 70px;
-        height: 140px;
-
         &-button {
-            width: 70px;
-            height: 140px;
-            background-color: $color-white;
+            width: 60px;
+            height: 100px;
         }
 
         &-city {
-            @include font-size(8);
-            font-family: $stack-1; 
-            color: $color-dark-blue; 
+            @include font-size(7);
         }
 
         &-weather-icon {
-
+            width: 24px;
+            height: 24px;
         }
 
         &-temperature-cold,
         &-temperature-medium,
         &-temperature-hot {
             @include font-size(7);
-            font-family: $stack-1;  
         }
-
-        &-temperature-cold {
-            color: $color-blue;
-        }
-
-        &-temperature-medium {
-            color: $color-dark-green;
-        }
-
-        &-temperature-hot {
-            color: $color-orange;
-        } 
     }
 }
 
-@media only screen and (min-width: 600px) {  //Tablet
+@include mq($from: mobile, $until: desktop) {
     .c-city-widget {
-        width: 70px;
-        min-width: 70px;
-        height: 140px;
-
         &-button {
-            width: 70px;
-            height: 140px;
-            background-color: $color-white;
+            width: 75px;
+            height: 150px;
         }
 
         &-city {
-            @include font-size(8);
-            font-family: $stack-1; 
-            color: $color-dark-blue; 
-        }
-
-        &-weather-icon {
-
+            @include font-size(9);
         }
 
         &-temperature-cold,
         &-temperature-medium,
         &-temperature-hot {
-            @include font-size(7);
-            font-family: $stack-1;  
+            @include font-size(9);
         }
-
-        &-temperature-cold {
-            color: $color-blue;
-        }
-
-        &-temperature-medium {
-            color: $color-dark-green;
-        }
-
-        &-temperature-hot {
-            color: $color-orange;
-        } 
     }
 }
 
-@media only screen and (min-width: 1000px) { //Web
+@include mq($from: desktop) {
     .c-city-widget {
-        width: 100px;
-        min-width: 100px;
-        height: 200px;
-
         &-button {
             width: 100px;
             height: 200px;
-            background-color: $color-white;
         }
 
         &-city {
             @include font-size(12);
-            font-family: $stack-1; 
-            color: $color-dark-blue; 
-        }
-
-        &-weather-icon {
-            
         }
 
         &-temperature-cold,
         &-temperature-medium,
         &-temperature-hot {
-            @include font-size(10);
-            font-family: $stack-1;  
+            @include font-size(12);
         }
-
-        &-temperature-cold {
-            color: $color-blue;
-        }
-
-        &-temperature-medium {
-            color: $color-dark-green;
-        }
-
-        &-temperature-hot {
-            color: $color-orange;
-        } 
     }
 }

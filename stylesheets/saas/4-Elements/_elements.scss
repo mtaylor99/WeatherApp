@@ -4,9 +4,20 @@ h1 {
 }
 
 fieldset {
-    @include font-size(10);
     font-family: $stack-1;  
     color: $color-black;
+
+    @include mq($until: mobile) {
+        @include font-size(8);
+    }
+
+    @include mq($from: mobile, $until: desktop) {
+        @include font-size(10);
+    }
+    
+    @include mq($from: desktop) {
+        @include font-size(12);
+    }
 }
 
 button {

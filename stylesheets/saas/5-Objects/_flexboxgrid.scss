@@ -7,7 +7,7 @@
     flex-wrap: wrap;
 }
 
-@media only screen and (max-width: 600px) {  //Mobile
+@include mq($until: mobile) {
     .o-main-content {
         flex-direction: column;
     }
@@ -18,7 +18,7 @@
     }
 }
 
-@media only screen and (max-width: 800px) {  //Tablet
+@include mq($from: mobile, $until: desktop) {
     .o-main-content {
         flex-direction: column;
     }
@@ -29,7 +29,7 @@
     }
 }
 
-@media only screen and (min-width: 1000px) { //Web
+@include mq($from: desktop) {
     .o-main-content {
         flex-direction: row;
     }
@@ -48,20 +48,19 @@
 .o-weather-details {
     flex: 3;
 
-
-    @media only screen and (max-width: 600px) {  //Mobile
-        min-width: 500px;
-        margin-top: 20px;
+    @include mq($until: mobile) {
+        //min-width: 500px;
+        margin-top: 10px;
     }
 
-    @media only screen and (min-width: 800px) { //Tablet
-        min-width: 470px;
-        margin-left: 20px;
+    @include mq($from: mobile, $until: desktop) {
+        //min-width: 470px;
+        margin-top: 10px;
     }  
 
-    @media only screen and (min-width: 1000px) { //Web
-        min-width: 630px;
-        margin-left: 20px;
+    @include mq($from: desktop) {
+        //min-width: 630px;
+        margin-left: 10px;
     }  
 }
 
