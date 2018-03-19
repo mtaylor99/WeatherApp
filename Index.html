@@ -1,42 +1,48 @@
+<!DOCTYPE html>
 <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="javascript/Charts.js"></script>
     <script src="javascript/Index.js"></script>
     <script src="javascript/Weather.js"></script>
 
     <link rel="stylesheet" href="stylesheets/Index.css">
 </head>
 <body>
-    <div class="c-weather-app-banner">
+    <div class="c-weather-app-banner" role="banner">
         <h1>Weather App</h1>
     </div>
     <div class="o-main-content">
-        <div class="o-cities-management">
+        <div class="o-cities-management" role="favourties">
             <div class="o-city-management">
                 <fieldset>
                     <legend>Manage your favourite cities</legend>
                     <div>
                         <div class="c-favourite-cities-select">
-                            <select class="js-new-cities-select-list c-new-cities-select-list">
+                            <select class="js-new-cities-select-list c-new-cities-select-list" aria-label="List of available cities" >
                                 <option value="0"></option>
-                                <option value="5815135">Washington</option>
-                                <option value="3675707">Madrid</option>
-                                <option value="4548393">Prague</option>
-                                <option value="4825976">Vienna</option>
-                                <option value="1850147">Tokyo</option>
                                 <option value="1816670">Beijing</option>
-                                <option value="4257043">Edinburgh</option>
-                                <option value="4687151">Dublin</option>
+                                <option value="2950158">Berlin</option>
                                 <option value="2172349">Cardiff</option>
+                                <option value="292223">Dubai</option>
+                                <option value="4687151">Dublin</option>
+                                <option value="4257043">Edinburgh</option>
+                                <option value="2643743">London</option>
+                                <option value="3675707">Madrid</option>
+                                <option value="5128638">New York</option>
+                                <option value="4548393">Prague</option>
+                                <option value="4219762">Rome</option>
+                                <option value="1850147">Tokyo</option>
+                                <option value="6167865">Toronto</option>
+                                <option value="4825976">Vienna</option>
+                                <option value="5815135">Washington</option>
                             </select>
                         </div>
 
-                        <button class="js-add-favourite-cities-button c-favourite-cities-button c-manage-favourite-cities-button" alt="Manage your favourite cities list" tabindex="2"></button>
+                        <button class="js-add-favourite-cities-button c-favourite-cities-button c-manage-favourite-cities-button" aria-label="Add selected city to the favourite list" alt="Add selected city to the favourite list" tabindex="2"></button>
 
-                        <button class="js-clear-favourite-cities-button c-favourite-cities-button c-clear-favourite-cities-button" tabindex="0"></button>
+                        <button class="js-clear-favourite-cities-button c-favourite-cities-button c-clear-favourite-cities-button" aria-label="Clear your favourite cities list" alt="Clear your favourite cities list" tabindex="0"></button>
                     </div>
                     <div>
                         <label class="js-add-favourite-cities-validation c-add-favourite-cities-validation u-hidden">Please select a city</label>
@@ -46,21 +52,25 @@
             <div class="u-margin-top-10">
                 <fieldset>
                     <legend>Your favourite cities list</legend>
-                    <div class="js-weather-cities-list o-city-widgets">
-                        
+                    <div class="vue-city-widgets js-weather-cities-list o-city-widgets">
+                        <city-widget
+                            v-for="city in cities"
+                            v-bind:city="city"
+                            v-bind:key="city.id">
+                        </city-widget>
                     </div>  
                 </fieldset>  
             </div>   
         </div>
-        <div class="o-weather-details">
+        <div class="o-weather-details" role="details">
             <fieldset>
                 <legend class="js-weather-entries-fieldset-legend">Weather for your selected city</legend>
 
                 <div >
                     <div class="c-weather-details-banner">
                         <label class="js-weather-details-banner-city-name c-weather-details-banner-city-name"></label>
-
-                        <img class="js-weather-details-banner-weather-icon c-weather-details-banner-weather-icon"></img>
+                            
+                        <img class="js-weather-details-banner-weather-icon c-weather-details-banner-weather-icon" alt="Selected city weather banner" />
                         <div>
                             <label class="js-weather-details-banner-weather-temperature c-weather-details-banner-weather-temperature"></label>
                         </div>
@@ -69,15 +79,15 @@
                     <div class="o-weather-details-units">
                         <div class="c-weather-details-temperature">
                             <div class="c-weather-details-units-title">Temperature</div>
-                            <div class="c-weather-details-temperature-chart"></div>
+                            <div class="js-weather-details-temperature-chart c-weather-details-temperature-chart"></div>
                         </div>
                         <div class="c-weather-details-humidity">
                             <div class="c-weather-details-units-title">Humidity</div>
-                            <div class="c-weather-details-humidity-chart"></div>
+                            <div class="js-weather-details-humidity-chart c-weather-details-humidity-chart"></div>
                         </div>
                         <div class="c-weather-details-wind-speed">
                             <div class="c-weather-details-units-title">Wind Speed</div>
-                            <div class="c-weather-details-wind-speed-chart"></div>
+                            <div class="js-weather-details-wind-speed-chart c-weather-details-wind-speed-chart"></div>
                         </div>
                     </div>
                 </div>
@@ -86,9 +96,6 @@
         </div>  
     </div>
 
-    <div class="js-vue-app">
-        {{ message }}
-    </div>
-
     <script src="javascript/Charts.js"></script>
+    <script src="javascript/Vue.js"></script>
 </body>

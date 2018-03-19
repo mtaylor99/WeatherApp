@@ -3,9 +3,17 @@ h1 {
   font-family: arial, helvetica, sans-serif; }
 
 fieldset {
-  font-size: 1rem;
   font-family: arial, helvetica, sans-serif;
   color: #000000; }
+  @media (max-width: 19.99em) {
+    fieldset {
+      font-size: 0.8rem; } }
+  @media (min-width: 20em) and (max-width: 61.24em) {
+    fieldset {
+      font-size: 1rem; } }
+  @media (min-width: 61.25em) {
+    fieldset {
+      font-size: 1.2rem; } }
 
 button {
   color: #000000;
@@ -14,7 +22,10 @@ button {
   -webkit-transition-duration: .4s;
   /* Safari */
   transition-duration: .4s;
-  cursor: pointer; }
+  cursor: pointer;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e0e0e0; }
 
 .o-main-content {
   display: flex; }
@@ -23,14 +34,21 @@ button {
   display: flex;
   flex-wrap: wrap; }
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 19.99em) {
   .o-main-content {
     flex-direction: column; }
 
   .o-city-widgets {
     flex-direction: row;
     min-height: 170px; } }
-@media only screen and (min-width: 768px) {
+@media (min-width: 20em) and (max-width: 61.24em) {
+  .o-main-content {
+    flex-direction: column; }
+
+  .o-city-widgets {
+    flex-direction: row;
+    min-height: 170px; } }
+@media (min-width: 61.25em) {
   .o-main-content {
     flex-direction: row; }
 
@@ -43,14 +61,15 @@ button {
     max-width: 410px; } }
 .o-weather-details {
   flex: 3; }
-  @media only screen and (max-width: 768px) {
+  @media (max-width: 19.99em) {
     .o-weather-details {
-      min-width: 500px;
-      margin-top: 20px; } }
-  @media only screen and (min-width: 768px) {
+      margin-top: 10px; } }
+  @media (min-width: 20em) and (max-width: 61.24em) {
     .o-weather-details {
-      min-width: 630px;
-      margin-left: 20px; } }
+      margin-top: 10px; } }
+  @media (min-width: 61.25em) {
+    .o-weather-details {
+      margin-left: 10px; } }
 
 .o-weather-details-units {
   display: flex;
@@ -61,18 +80,28 @@ button {
 .c-weather-app-banner {
   background-image: url("../images/weatherbanner.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 130px;
-  height: 130px;
   padding-left: 10px;
   margin-bottom: 10px; }
-  @media only screen and (max-width: 768px) {
-    .c-weather-app-banner {
-      height: 129px; } }
-  @media only screen and (min-width: 768px) {
-    .c-weather-app-banner {
-      height: 130px; } }
   .c-weather-app-banner h1 {
     color: #ffffff; }
+  @media (max-width: 19.99em) {
+    .c-weather-app-banner {
+      height: 32px;
+      background-size: 100% 32px; }
+      .c-weather-app-banner h1 {
+        font-size: 1.6rem; } }
+  @media (min-width: 20em) and (max-width: 61.24em) {
+    .c-weather-app-banner {
+      height: 64px;
+      background-size: 100% 64px; }
+      .c-weather-app-banner h1 {
+        font-size: 2.4rem; } }
+  @media (min-width: 61.25em) {
+    .c-weather-app-banner {
+      height: 96px;
+      background-size: 100% 96px; }
+      .c-weather-app-banner h1 {
+        font-size: 2.6rem; } }
 
 .c-favourite-cities-button {
   width: 24px;
@@ -95,64 +124,60 @@ button {
 .c-city-widget {
   margin: 10px;
   text-align: center; }
+  .c-city-widget-button {
+    background-color: #ffffff; }
   .c-city-widget:hover {
     background-color: #e0e0e0; }
   .c-city-widget-selected {
-    border-bottom: 10px solid #000055; }
+    border-bottom: 5px solid #000055; }
   .c-city-widget-city {
+    font-family: arial, helvetica, sans-serif;
+    color: #000055;
     overflow: hidden; }
+  .c-city-widget-weather-icon {
+    display: block;
+    margin: auto; }
+  .c-city-widget-temperature-cold, .c-city-widget-temperature-medium, .c-city-widget-temperature-hot {
+    font-family: arial, helvetica, sans-serif; }
+  .c-city-widget-temperature-cold {
+    color: #0000FF; }
+  .c-city-widget-temperature-medium {
+    color: #006400; }
+  .c-city-widget-temperature-hot {
+    color: #EE7600; }
 
-@media only screen and (max-width: 768px) {
-  .c-city-widget {
-    width: 70px;
-    min-width: 70px;
-    height: 140px; }
-    .c-city-widget-button {
-      width: 70px;
-      height: 140px;
-      background-color: #ffffff; }
-    .c-city-widget-city {
-      font-size: 0.8rem;
-      font-family: arial, helvetica, sans-serif;
-      color: #000055; }
-    .c-city-widget-temperature-cold, .c-city-widget-temperature-medium, .c-city-widget-temperature-hot {
-      font-size: 0.7rem;
-      font-family: arial, helvetica, sans-serif; }
-    .c-city-widget-temperature-cold {
-      color: #0000FF; }
-    .c-city-widget-temperature-medium {
-      color: #006400; }
-    .c-city-widget-temperature-hot {
-      color: #EE7600; } }
-@media only screen and (min-width: 768px) {
-  .c-city-widget {
+@media (max-width: 19.99em) {
+  .c-city-widget-button {
+    width: 60px;
+    height: 100px; }
+  .c-city-widget-city {
+    font-size: 0.7rem; }
+  .c-city-widget-weather-icon {
+    width: 24px;
+    height: 24px; }
+  .c-city-widget-temperature-cold, .c-city-widget-temperature-medium, .c-city-widget-temperature-hot {
+    font-size: 0.7rem; } }
+@media (min-width: 20em) and (max-width: 61.24em) {
+  .c-city-widget-button {
+    width: 75px;
+    height: 150px; }
+  .c-city-widget-city {
+    font-size: 0.9rem; }
+  .c-city-widget-temperature-cold, .c-city-widget-temperature-medium, .c-city-widget-temperature-hot {
+    font-size: 0.9rem; } }
+@media (min-width: 61.25em) {
+  .c-city-widget-button {
     width: 100px;
-    min-width: 100px;
     height: 200px; }
-    .c-city-widget-button {
-      width: 100px;
-      height: 200px;
-      background-color: #ffffff; }
-    .c-city-widget-city {
-      font-size: 1.2rem;
-      font-family: arial, helvetica, sans-serif;
-      color: #000055; }
-    .c-city-widget-temperature-cold, .c-city-widget-temperature-medium, .c-city-widget-temperature-hot {
-      font-size: 1rem;
-      font-family: arial, helvetica, sans-serif; }
-    .c-city-widget-temperature-cold {
-      color: #0000FF; }
-    .c-city-widget-temperature-medium {
-      color: #006400; }
-    .c-city-widget-temperature-hot {
-      color: #EE7600; } }
+  .c-city-widget-city {
+    font-size: 1.2rem; }
+  .c-city-widget-temperature-cold, .c-city-widget-temperature-medium, .c-city-widget-temperature-hot {
+    font-size: 1.2rem; } }
 .c-weather-details-banner {
-  background: linear-gradient(to right, #0000FF, #339FFF);
+  background: linear-gradient(to right, #5590D4, #ffffff);
   width: 100%;
-  height: 100px;
   margin-bottom: 10px; }
   .c-weather-details-banner-city-name {
-    font-size: 3.5rem;
     font-family: arial, helvetica, sans-serif;
     padding: 5px;
     float: left;
@@ -160,47 +185,93 @@ button {
   .c-weather-details-banner-weather-icon, .c-weather-details-banner-weather-temperature {
     float: right; }
   .c-weather-details-banner-weather-icon {
-    height: 80px;
-    padding: 10px; }
+    padding: 5px; }
   .c-weather-details-banner-weather-temperature {
-    font-size: 1.6rem;
     font-family: arial, helvetica, sans-serif;
-    color: #ffffff;
     position: relative;
-    float: right;
-    top: 70px; }
+    float: right; }
+  @media (max-width: 19.99em) {
+    .c-weather-details-banner {
+      height: 50px; }
+      .c-weather-details-banner-city-name {
+        font-size: 1.4rem; }
+      .c-weather-details-banner-weather-temperature {
+        font-size: 0.8rem;
+        top: 30px; }
+      .c-weather-details-banner-weather-icon {
+        height: 40px; } }
+  @media (min-width: 20em) and (max-width: 61.24em) {
+    .c-weather-details-banner {
+      height: 75px; }
+      .c-weather-details-banner-city-name {
+        font-size: 2.4rem; }
+      .c-weather-details-banner-weather-temperature {
+        font-size: 1.2rem;
+        top: 50px; }
+      .c-weather-details-banner-weather-icon {
+        height: 60px; } }
+  @media (min-width: 61.25em) {
+    .c-weather-details-banner {
+      height: 100px; }
+      .c-weather-details-banner-city-name {
+        font-size: 3.5rem; }
+      .c-weather-details-banner-weather-temperature {
+        font-size: 1.6rem;
+        top: 70px; }
+      .c-weather-details-banner-weather-icon {
+        height: 80px; } }
 
 .c-weather-details-units-title {
-  font-size: 1.6rem;
   font-family: arial, helvetica, sans-serif;
   background-color: #e0e0e0;
   color: #ffffff;
   padding: 2px 2px 2px 2px; }
+  @media (max-width: 19.99em) {
+    .c-weather-details-units-title {
+      font-size: 0.8rem; } }
+  @media (min-width: 20em) and (max-width: 61.24em) {
+    .c-weather-details-units-title {
+      font-size: 1.2rem; } }
+  @media (min-width: 61.25em) {
+    .c-weather-details-units-title {
+      font-size: 1.6rem; } }
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 19.99em) {
   .c-weather-details-temperature-chart {
-    width: 400px;
-    height: 200px; }
+    width: 250px;
+    height: 175px; }
 
   .c-weather-details-humidity-chart {
-    width: 400px;
-    height: 200px; }
+    width: 250px;
+    height: 175px; }
 
   .c-weather-details-wind-speed-chart {
-    width: 400px;
-    height: 200px; } }
-@media only screen and (min-width: 768px) {
+    width: 250px;
+    height: 175px; } }
+@media (min-width: 20em) and (max-width: 61.24em) {
   .c-weather-details-temperature-chart {
-    width: 600px;
+    width: 450px;
     height: 300px; }
 
   .c-weather-details-humidity-chart {
-    width: 600px;
+    width: 450px;
     height: 300px; }
 
   .c-weather-details-wind-speed-chart {
-    width: 600px;
+    width: 450px;
     height: 300px; } }
+@media (min-width: 61.25em) {
+  .c-weather-details-temperature-chart {
+    width: 700px;
+    height: 450px; }
+
+  .c-weather-details-humidity-chart {
+    width: 700px;
+    height: 450px; }
+
+  .c-weather-details-wind-speed-chart {
+    width: 700px;
+    height: 450px; } }
 .c-new-cities-select-list {
   float: left;
   position: relative;

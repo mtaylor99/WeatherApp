@@ -1,21 +1,37 @@
 .c-weather-app-banner {
     background-image: $header-banner-image;
     background-repeat: no-repeat;
-    background-size: 100% 130px;
-    height: 130px;
     padding-left: 10px;
     margin-bottom: 10px;
 
-    @media only screen and (max-width: 768px) {  //Mobile
-        height: 129px;
-    }
-    
-    @media only screen and (min-width: 768px) { //Web
-        height: 130px;
-    }
-    
-
-    h1 {     
+    h1 {
         color: $color-white;
+    }
+
+    @include mq($until: mobile) {
+        height: 32px;
+        background-size: 100% 32px;
+
+        h1 {
+            @include font-size(16);
+        }
+    }
+
+    @include mq($from: mobile, $until: desktop) {
+        height: 64px;
+        background-size: 100% 64px;
+
+        h1 {
+            @include font-size(24);
+        }
+    }
+    
+    @include mq($from: desktop) {
+        height: 96px;
+        background-size: 100% 96px;
+
+        h1 {
+            @include font-size(26);
+        }
     }
 }

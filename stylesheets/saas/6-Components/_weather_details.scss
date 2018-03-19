@@ -1,11 +1,11 @@
+
+
 .c-weather-details-banner {
-    background: linear-gradient(to right, $color-blue, $color-light-blue);
+    background: linear-gradient(to right, $color-light-blue, $color-white);
     width: 100%; 
-    height: 100px;
     margin-bottom: 10px;
 
     &-city-name {
-        @include font-size(35);
         font-family: $stack-1;  
         padding: 5px;
         float: left; 
@@ -18,61 +18,133 @@
     }
 
     &-weather-icon {
-        height: 80px; 
-        padding: 10px;
+        padding: 5px;
     }
 
     &-weather-temperature {
-        @include font-size(16);
         font-family: $stack-1;  
-        color: $color-white; 
         position: relative; 
         float: right; 
-        top: 70px;
     }  
+
+    @include mq($until: mobile) {
+        height: 50px;
+
+        &-city-name {
+            @include font-size(14);
+        }
+
+        &-weather-temperature {
+            @include font-size(8);
+            top: 30px;
+        }  
+
+        &-weather-icon {
+            height: 40px; 
+        }
+    }
+
+    @include mq($from: mobile, $until: desktop) {
+        height: 75px;
+
+        &-city-name {
+            @include font-size(24);
+        }
+
+        &-weather-temperature {
+            @include font-size(12);
+            top: 50px;
+        }  
+
+        &-weather-icon {
+            height: 60px; 
+        }
+    }
+
+    @include mq($from: desktop) {
+        height: 100px;
+
+        &-city-name {
+            @include font-size(35);
+        }
+
+        &-weather-temperature {
+            @include font-size(16);
+            top: 70px;
+        }  
+
+        &-weather-icon {
+            height: 80px; 
+        }
+    }
 }
 
-.c-weather-details-units-title {
-    @include font-size(16);
+.c-weather-details-units-title {   
     font-family: $stack-1;  
     background-color: $color-light-gray; 
     color: $color-white;
     padding: 2px 2px 2px 2px;
+
+    @include mq($until: mobile) {
+        @include font-size(8);
+    }
+
+    @include mq($from: mobile, $until: desktop) {
+        @include font-size(12);
+    }
+
+    @include mq($from: desktop) {
+        @include font-size(16);
+    }
 }
 
-@media only screen and (max-width: 768px) {  //Mobile
+@include mq($until: mobile) {
     .c-weather-details-temperature-chart {
-        width: 400px; 
-        height: 200px;
+        width: 250px; 
+        height: 175px;
     }
 
     .c-weather-details-humidity-chart {
-        width: 400px; 
-        height: 200px;
+        width: 250px; 
+        height: 175px;
     }
 
     .c-weather-details-wind-speed-chart {
-        width: 400px; 
-        height: 200px;
+        width: 250px; 
+        height: 175px;
     }
 }
 
-@media only screen and (min-width: 768px) { //Web
+@include mq($from: mobile, $until: desktop) {
     .c-weather-details-temperature-chart {
-        width: 600px; 
+        width: 450px; 
         height: 300px;
     }
 
     .c-weather-details-humidity-chart {
-        width: 600px; 
+        width: 450px; 
         height: 300px;
     }
 
     .c-weather-details-wind-speed-chart {
-        width: 600px; 
+        width: 450px; 
         height: 300px;
     }
 }
 
+@include mq($from: desktop) {
+    .c-weather-details-temperature-chart {
+        width: 700px; 
+        height: 450px;
+    }
 
+    .c-weather-details-humidity-chart {
+        width: 700px; 
+        height: 450px;
+    }
 
+    .c-weather-details-wind-speed-chart {
+        width: 700px; 
+        height: 450px;
+    }
+}
