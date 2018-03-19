@@ -24,6 +24,11 @@ function GetCitiesFromStorage() {
 }
 
 function SaveCitiesToStorage(newCities) {
+    ////Find method
+    //if (favouriteCities.find(x => x.id === parseInt(newCities)) === undefined) {
+    //    storedCities.push(newCities[i]);
+    //}
+
     for (var i = 0 ; i < newCities.length; i++) {
         if (storedCities.indexOf(newCities[i]) === -1) {
             storedCities.push(newCities[i]);
@@ -38,6 +43,13 @@ function SetCurrentCityName(city) {
 }
 
 function IsCityInArray(cityId) {
+    ////Find method
+    //if (favouriteCities.find(x => x.id === cityId) === undefined) {
+    //    return false;
+    //} else {
+    //    return true;
+    //}
+
     for (var i = 0 ; i < favouriteCities.length; i++) {
         if (favouriteCities[i].id === cityId) {
             return true;
@@ -70,6 +82,19 @@ function GetSummaryWeatherForCities(cityIds, loadFirstCityWeather) {
     $.getJSON("http://api.openweathermap.org/data/2.5/group?APPID=2e7d0233a8dffc4366669ec64ea59731&units=metric&id=" + cityIds,
         function(result){  
             var newTabIndex = $(".js-city-list").length + 3;
+
+            ////ForEach method
+            //result.list.forEach(function(d) {
+            //    var city = {
+            //        id: d.id, 
+            //        name: d.name, 
+            //        temperature: d.main.temp, 
+            //        weather: d.weather[0].main,
+            //        selected: false
+            //    };
+
+            //    AddNewCityToArray(city);
+            //});
 
             for (var i = 0; i < result.cnt; i++) {
                 var city = {
@@ -108,6 +133,14 @@ function GetAndDisplayWeatherDataForCity(city) {
 }
 
 function SelectCity(city) {
+    ////ForEach method
+    //favouriteCities.forEach(function(d) {
+    //    d.selected = false;
+    //});
+
+    ////Find method
+    //favouriteCities.find(x => x.name ===city).selected = true;;
+     
     for (var i = 0; i < favouriteCities.length; i++) {
         favouriteCities[i].selected = false;
 
@@ -118,6 +151,9 @@ function SelectCity(city) {
 }
 
 function GetSummaryForCity(city) {
+    ////Find method
+    //return favouriteCities.find(x => x.name ===city);
+
     for (var i = 0; i < favouriteCities.length; i++) {
         if (favouriteCities[i].name === city)
             return favouriteCities[i];
