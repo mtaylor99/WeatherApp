@@ -21,7 +21,9 @@ $(document).ready(function(){
             ClearWeatherBannerDetails();
 
             $(".c-city-widget").remove();
-            $(".js-weather-entries-table tbody tr").remove();
+            $(".js-weather-details-temperature-chart").empty();
+            $(".js-weather-details-humidity-chart").empty();
+            $(".js-weather-details-wind-speed-chart").empty();
         });
 
     $(".js-add-favourite-cities-button").unbind("click")
