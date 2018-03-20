@@ -1,24 +1,24 @@
-/*global google SetCurrentCityName DrawCharts RemoveCitiesFromStorage GetCitiesFromStorage GetAndDisplayWeatherDataForCity SaveCitiesToStorage GetSummaryWeatherForCities ClearWeatherBannerDetails */
+/*global google weather */
 
 google.charts.load("current", {packages: ["corechart","line"]});  
 
 $(document).ready(function(){
 
     var id;
-    var cityIds = GetCitiesFromStorage();
+    var cityIds = weather.GetCitiesFromStorage();
     
     $(window).resize(function() {
         clearTimeout(id);
-        id = setTimeout(DrawCharts, 500);
+        id = setTimeout(weather.DrawCharts, 500);
     });
 
-    GetSummaryWeatherForCities(cityIds, true);
+    weather.GetSummaryWeatherForCities(cityIds, true);
 
     $(".js-clear-favourite-cities-button").unbind("click")
         .bind("click", function() {
-            RemoveCitiesFromStorage();
+            weather.RemoveCitiesFromStorage();
 
-            ClearWeatherBannerDetails();
+            weather.ClearWeatherBannerDetails();
 
             $(".c-city-widget").remove();
             $(".js-weather-details-temperature-chart").empty();
@@ -34,15 +34,15 @@ $(document).ready(function(){
             var newCityId = $(".js-new-cities-select-list").val();
 
             if (parseInt(newCityId) !== 0) {
-                GetSummaryWeatherForCities(newCityId, false);
-                GetAndDisplayWeatherDataForCity(newCity); 
+                weather.GetSummaryWeatherForCities(newCityId, false);
+                weather.GetAndDisplayWeatherDataForCity(newCity); 
 
                 var city = [];
 
                 city.push(newCityId);
-                SaveCitiesToStorage(city);
+                weather.SaveCitiesToStorage(city);
 
-                SetCurrentCityName(newCity);
+                weather.SetCurrentCityName(newCity);
             } else {
                 $(".js-add-favourite-cities-validation").removeClass("u-hidden");
             }

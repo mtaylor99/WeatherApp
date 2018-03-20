@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
-/* global Vue GetAndDisplayWeatherDataForCity favouriteCities SelectCity  */
+/* global Vue weather favouriteCities */
 
 Vue.component("city-widget", {
     props: ["city"],
     methods: {
         onCityWidgetClick: function() { 
-            SelectCity(this.city.name);
+            weather.SelectCity(this.city.name);
 
-            GetAndDisplayWeatherDataForCity(this.city.name);
+            weather.GetAndDisplayWeatherDataForCity(this.city.name);
         }
     },
     template: "<div class=\"c-city-widget\">" +
